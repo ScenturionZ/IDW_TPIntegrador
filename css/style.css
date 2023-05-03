@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,400&display=swap');
+
+/* VARIABLES*/
+element {
+    --color-pink: rgb(216, 29, 216);
+    --color-purple:  rgb(98, 16, 250);
+  }
+
+
+/* GENERAL */
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    min-height: 100vh;
+}
+
+.box-shadow{
+    box-shadow: -1px 13px 32px -4px rgba(0,0,0,0.74);
+    -webkit-box-shadow: -1px 13px 32px -4px rgba(0,0,0,0.74);
+    -moz-box-shadow: -1px 13px 32px -4px rgba(0,0,0,0.74);
+}
+
+/* NAVBAR */
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #252525;
+    overflow: hidden;
+    height: 5rem;
+}
+
+.nav {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a {
+    color: #ffffff;
+    position: relative;
+    text-decoration: none;
+    border-bottom: var(--color-pink)
+}
+
+#logo-uner{
+    width: 6rem;
+}
+
+
+/* HOME */
+
+
+/* CONTACTO */
+
+
+/* CARRERAS */
+
+
+/* INFORMACION */
