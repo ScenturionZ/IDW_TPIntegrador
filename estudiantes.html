@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="universidad bedelia uner">
 
-    <title>Materias</title>
-    <link rel="stylesheet" href="../css/style.css" type="text/css" />
-    
+    <title>Estudiantes</title>
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+   
 </head>
 <body>
     <!--Navbar-->
@@ -17,30 +17,31 @@
             <a href="carreras.html">Carreras</a>
             <a href="materias.html">Materias</a>
             <a href="index.html">
-                <img id="logo-uner" src="../assets/img/unerLogo.png"/>
+                <img id="logo-uner" src="assets/img/unerLogo.png"/>
             </a>
             <a href="estudiantes.html">Estudiantes</a>
             <a href="contacto.html">Contacto</a>
         </ul>
     </nav>
-    <!--First section - buscador-->
+    
     <section class="section-search">
         <div class="search">
             <input type="text" placeholder="">
             <button class="btn btn-search">Buscar</button>
         </div>
         </section>
-    <!--Second section - listado + editar/eliminar-->
+    
     <section>
         <div class="table-container">
-            <h2>Listado de materias</h2>
+            <h2>Listado de estudiantes</h2>
             <table class="table-list">
                 <thead> 
                     <th>Selector</th>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Horas semanales</th>
-                    <th>Carrera</th>
+                    <th>Apellido</th>
+                    <th>DNI</th>
+                    <th>Email</th>
                     <th>Acciones</th>
                 </thead>
                 <tbody> 
@@ -49,9 +50,10 @@
                         <label for="1"></label>
                     </td>
                     <td>01</td>
-                    <td>Sistemas Operativos</td>
-                    <td>24</td>
-                    <td>Analista de sistemas</td>
+                    <td>Thomas</td>
+                    <td>Edison</td>
+                    <td>12764257</td>
+                    <td>t.edison@gmail.com</td>
                     <td class="td-btn">
                         <a class="btn edit" type="button"> editar</a>
                         <a class="btn delete" type="button"> borrar</a>
@@ -64,9 +66,10 @@
                         <label for="2"></label>
                     </td>
                     <td>02</td>
-                    <td>Diseño grafico</td>
-                    <td>18</td>
-                    <td>Desarrollo web</td>
+                    <td>Emilia</td>
+                    <td>Walter</td>
+                    <td>30763257</td>
+                    <td>e.walter@gmail.com</td>
                     <td class="td-btn">
                         <a class="btn edit" type="button"> editar</a>
                         <a class="btn delete" type="button"> borrar</a>
@@ -76,6 +79,6 @@
             </table>
         </div>
     </section>
-
+    
 </body>
 </html>
