@@ -24,10 +24,65 @@
             <a href="contacto.html">Contacto</a>
         </ul>
     </nav>
-    <!--First section-->
 
-    <!--Second section-->
+    <section class="section-search">
+        <div class="search">
+            <input type="text" placeholder="">
+            <button class="btn btn-search">Buscar</button>
+        </div>
+        </section>
+
+    <section>
+        <div class="table-container">
+            <h2>Listado de carreras</h2>
+            <table class="table-list">
+                <thead> 
+                    <th>Selector</th>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Duracion(años)</th>
+                    <!--El btn de esta columna abre modal con el listado-->
+                    <th>Materias</th>
+                    <th>Acciones</th>
+                </thead>
+                <tbody> 
+                    <td class="checkbox-group">
+                        <input type="checkbox" id="1">
+                        <label for="1"></label>
+                    </td>
+                    <td>01</td>
+                    <td>Analista de sistemas</td>
+                    <td>3</td>
+                    <td class="td-btn">
+                        <a class="btn materias-btn" type="button"> Ver listado</a>
+                    </td>
+                    <td class="td-btn">
+                        <a class="btn edit" type="button"> editar</a>
+                        <a class="btn delete" type="button"> borrar</a>
+                    </td>
+                </tbody>
+
+                <tbody> 
+                    <td class="checkbox-group">
+                        <input type="checkbox" id="2">
+                        <label for="2"></label>
+                    </td>
+                    <td>02</td>
+                    <td>Desarrollo web</td>
+                    <td>3</td>
+                    <td class="td-btn">
+                        <a class="btn materias-btn" type="button"> Ver listado</a>
+                    </td>
+                    <td class="td-btn">
+                        <a class="btn edit" type="button"> editar</a>
+                        <a class="btn delete" type="button"> borrar</a>
+                    </td>
+                </tbody>
+
+            </table>
+        </div>
+    </section>
     
-    <!--Join us-->
+
 </body>
 </html>
