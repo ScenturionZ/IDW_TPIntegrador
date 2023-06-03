@@ -4,7 +4,8 @@ const GLOBAL_KEYS = {
                         MATERIAS : "materias"
                     }
 const GLOBAL_VALUES = {
-                        ESTUDIANTES_JSON: "./assets/json/estudiantes.json"
+                        ESTUDIANTES_JSON: "./assets/json/estudiantes.json",
+                        CARRERAS_JSON: "./assets/json/carreras.json"
                     }
 
 function readJSON(file, callback){
