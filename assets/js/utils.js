@@ -92,6 +92,7 @@ function appendElementTable(key, element){
     cell.innerHTML = actionsButton;
 }
 
+
 window.addEventListener("load", function(){
     let deleteButtons = document.getElementsByClassName('delete');
     for (let btnDelete of deleteButtons) {

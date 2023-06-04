@@ -23,6 +23,17 @@ function loadCarreraTable(){
     }
 }
 
+function searchMateriasByIdCarrera(id){
+    let materias = getJSON(GLOBAL_KEYS.MATERIAS);
+    let materiasByCarrera = [];
+    for (let e of materias){
+        if (e.id_carrera == id ){
+            materiasByCarrera.push(e.nombre);
+        }
+    }
+    return materiasByCarrera;
+}
+
 document.addEventListener("DOMContentLoaded", function(){
     loadCarreraTable()
 });

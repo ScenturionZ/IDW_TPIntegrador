@@ -4,106 +4,48 @@
         "nombre": "Tecnicatura Universitaria en Jardinería",
         "tipo": "PREGRADO",
         "modalidad": "presencial",
-        "duracion(años)": 2.5,
-        "materias": [
-            "Botanica morfologica",
-            "Ingles tecnico","Suelos", 
-            "Fisiologia vegetal",
-            "Jardineria y sociedad", 
-            "Meteorologia aplicada"
-        ]
+        "duracion(años)": 2.5
       },
       {
         "id": 2,
         "nombre": "Licenciatura en Ciencias de la Administración",
         "tipo": "GRADO",
         "modalidad": "virtual",
-        "duracion(años)": 5,
-        "materias": [
-            "Introduccion a la Economia", 
-            "Algebra",
-            "Sistemas y tecnologia",
-            "Macroeconomia",
-            "Contabilidad",
-            "Filosofia y Conocimiento cientifico",
-            "Sociedades y asociaciones"
-        ]  
+        "duracion(años)": 5 
     },
       {
         "id": 3,
         "nombre": "Tecnicatura Universitaria en Desarrollo Web",
         "tipo": "PREGRADO",
         "modalidad": "virtual",
-        "duracion(años)": 3,
-        "materias": [
-            "Programacion I",
-            "Diseño gráfico",
-            "Programacion II", 
-            "Base de datos", 
-            "Introduccion al desarrollo web",
-            "Sistemas operativos"
-       ]
+        "duracion(años)": 3
      },
       {
         "id": 4,
         "nombre": "Contador Público",
         "tipo": "GRADO",
         "modalidad": "virtual",
-        "duracion(años)": 5,
-        "materias": [
-            "Contabilidad I", 
-            "Algebra aplicada a ciencias economicas", 
-            "Microeconomia", 
-            "Instituciones del Derecho I", 
-            "Estadistica", 
-            "Instituciones del Derecho II", 
-            "Contabilidad II", 
-            "Administracion general", 
-            "Impuestos I", 
-            "Sistema de costos"
-        ]
+        "duracion(años)": 5
     },
       {
         "id": 5,
         "nombre": "Maestría en Comunicación",
         "tipo": "POSTGRADO",
         "modalidad": "presencial",
-        "duracion(años)": 2,
-        "materias": [
-            "Teorías de la Comunicación", 
-            "Taller de Tesis I", 
-            "Taller de Tesis II",
-            "Metodologías de la Investigación en Comunicación"
-        ]
+        "duracion(años)": 2
       },
       {
         "id": 6,
         "nombre": "Tecnicatura en Producción Editorial",
         "tipo": "PREGRADO",
         "modalidad": "presencial",
-        "duracion(años)": 3,
-        "materias": [
-            "Taller de redaccion", 
-            "Taller de grafica", 
-            "Produccion de impresos", 
-            "Historia de los medios", 
-            "Comunicacion y cultura", 
-            "Derecho y edicion", 
-            "Correccion de estilo"
-        ]
+        "duracion(años)": 3
       },
       {
         "id": 7,
         "nombre": "Licenciatura en Instrumentación Quirúrgica",
         "tipo": "GRADO",
         "modalidad": "presencial",
-        "duracion(años)": 5,
-        "materias": [
-            "Microbiologia", 
-            "Bioquimica", 
-            "Fisiología", 
-            "Salud pública y laboral", 
-            "Anatomia quirurgica, Psicologia"
-        ]
+        "duracion(años)": 5
       }
     ]

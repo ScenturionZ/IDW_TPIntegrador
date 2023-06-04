@@ -8,7 +8,9 @@
 
     <title>Carreras</title>
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
-
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/init.js"></script>
+    <script src="assets/js/carreras.js"></script>
 
 </head>
 <body>
@@ -35,11 +37,13 @@
     <section>
         <div class="table-container">
             <h2>Listado de carreras</h2>
-            <table class="table-list">
+            <table class="table-list" id="tablaCarreras">
                 <thead> 
                     <th>Selector</th>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Modalidad</th>
                     <th>Duracion(años)</th>
                     <!--El btn de esta columna abre modal con el listado-->
                     <th>Materias</th>
@@ -47,25 +51,6 @@
                 </thead>
                 <tbody>
                 </tbody>
-                <tbody> 
-                    <td class="checkbox-group">
-                        <input type="checkbox" id="1">
-                        <label for="1"></label>
-                    </td>
-                    <td>01</td>
-                    <td>Analista de sistemas</td>
-                    <td>3</td>
-                    <td class="td-btn">
-                        <a class="btn materias-btn" type="button"> Ver listado</a>
-                    </td>
-                    <td class="td-btn">
-                        <a class="btn edit" type="button"> editar</a>
-                        <a class="btn delete" type="button"> borrar</a>
-                    </td>
-                </tbody>
-
-
-
             </table>
         </div>
     </section>
