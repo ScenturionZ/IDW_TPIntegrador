@@ -1,28 +1,72 @@
+//FUNCTIONS
 function getEstudiantes(){
-    return getJSON(GLOBAL_KEYS.ESTUDIANTES);
+    return getJSON(globalKey);
 }
 
 function removeEstudiante(id){
-    removeItem(GLOBAL_KEYS.ESTUDIANTES, id)
+    removeItem(id)
 }
 
 function addEstudiante(element){
-    addItem(GLOBAL_KEYS.ESTUDIANTES, element);
+    addItem(element);
 }
 
-function createEstudiante(){
-    //leemos inputs y seteamos ID
-    //creas element
-    addEstudiante(element);
+function getNameEstudianteById(id){
+    let estudiante = getElementById(id);
+    return estudiante.nombre + ' ' + estudiante.apellido;
 }
 
-function loadEstudianteTable(){
-    let array = getEstudiantes();
-    for (let e of array) {
-        appendElementTable(GLOBAL_KEYS.ESTUDIANTES, e);
+//OVERRIDES
+getVoidElement = function(){
+    return {
+        id : 0,
+        nombre : '',
+        apellido : '',
+        dni : '',
+        email : ''
     }
 }
 
+loadElementTable = function (){
+    getTable().getElementsByTagName('tbody')[0].innerHTML = '';
+    let array = getEstudiantes();
+    for (let e of array) {
+        appendElementTable(e);
+    }
+}
+
+getElementById = function (id){
+    return getEstudiantes().find(e => e.id == id);
+}
+
+getTitleElementModal = function(id){
+    let value = 'Nuevo estudiante'
+    if(id !== 0){
+        value = 'Editar a ' + getNameEstudianteById(id);
+    }
+    return value;
+}
+
+//EVENTS
 document.addEventListener("DOMContentLoaded", function(){
-    loadEstudianteTable()
+    globalKey = GLOBAL_KEYS.ESTUDIANTES;
+});
+
+window.addEventListener("load", function(){
+    loadElementTable();
+    let deleteButtons = document.getElementsByClassName("delete");
+    for (let btnDelete of deleteButtons) {
+        btnDelete.addEventListener("click", function() {
+            let id = this.id.replace("delete-", "");
+            document.getElementById("elementId").value = id;
+            document.getElementById("estudianteName").innerHTML = getNameEstudianteById(id);
+        });
+    }
+
+    let inputs = document.getElementsByClassName("onlyNumbers");
+    for (let input of inputs) {
+        input.addEventListener("input", function() {
+            this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');
+        });
+    }
 });

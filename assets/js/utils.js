@@ -1,13 +1,47 @@
+//GLOBAL VARIABLES
 const GLOBAL_KEYS = {
                         ESTUDIANTES : "estudiantes",
                         CARRERAS : "carreras",
                         MATERIAS : "materias"
                     }
+
 const GLOBAL_VALUES = {
                         ESTUDIANTES_JSON: "./assets/json/estudiantes.json",
                         CARRERAS_JSON: "./assets/json/carreras.json"
                     }
 
+var globalKey = '';
+
+//MODALS
+var noChecksModal = new bootstrap.Modal(document.getElementById("noChecksModal"), {});
+
+var deleteMultipleModal = new bootstrap.Modal(document.getElementById("deleteMultipleModal"), {});
+
+var deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"), {});
+
+var elementModal = new bootstrap.Modal(document.getElementById("ElementModal"), {});
+
+//BOOSTRAP VALIDATE
+(() => {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+
+//FUNCTIONS
 function readJSON(file, callback){
     let rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
@@ -20,56 +54,81 @@ function readJSON(file, callback){
     rawFile.send(null);
 }
 
-function getJSON(key){
-    return JSON.parse(localStorage.getItem(key));
+function getJSON(){
+    return JSON.parse(localStorage.getItem(globalKey));
 }
 
-function setJSON(key, array){
-    array.sort(function(a, b) { 
+function setJSON(array){
+    array.sort(function(a, b){ 
         return a.id - b.id;
     });
-    localStorage.setItem(key, JSON.stringify(array));
+    localStorage.setItem(globalKey, JSON.stringify(array));
 }
 
-function removeItem(key, id){
-    let array = getJSON(key);
+function removeItem(id){
+    let array = getJSON();
     let element = array.find(item => item.id == id);
     let index = array.indexOf(element);
     if(element != undefined && index > -1){
         array.splice(index, 1);
-        setJSON(key, array);
+        setJSON(array);
     }
 }
 
-function addItem(key, element){
-    let array = getJSON(key);
+function addItem(element){
+    let array = getJSON();
     array.push(element);
-    setJSON(key, array);
+    setJSON(array);
 }
 
-function generateId(key){
-    let array = getJSON(key);
+function updateItem(element){
+    let array = getJSON();
+    let keys = Object.keys(element);
+    for(let i = 0; i < keys.length; i++){
+        array.find(item => item.id == element.id)[keys[i]] = element[keys[i]];
+    }
+    setJSON(array);
+}
+
+function generateId(){
+    let array = getJSON();
     array.sort(function(a, b) { 
         return a.id - b.id;
     });
-    return Number(array[array.length - 1].id) + 1;
+    return String(Number(array[array.length - 1].id) + 1);
 }
 
-function getTable(key){
-    let tableName = "tabla" + key.charAt(0).toUpperCase() + key.slice(1);
+function toCapitalize(str){
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+}
+
+function getTable(){
+    let tableName = "tabla" + toCapitalize(globalKey);
     return document.getElementById(tableName);
 }
 
-function appendElementTable(key, element){
-    let table = getTable(key);
+function loadFilters(){
+    let html = '';
+    let filters = document.getElementsByClassName("filter");
+    for (let f of filters) {
+        html += '<div class="form-check form-switch">' +
+                    '<input class="form-check-input check-filter" type="checkbox" role="switch" id="f-' + f.innerHTML + '" checked>' +
+                    '<label class="form-check-label" for="f-' + f.innerHTML + '">' + f.innerHTML + '</label>' +
+                '</div>';
+    }
+    document.getElementById("dropdown-menu-filter").innerHTML = html;
+}
+
+function appendElementTable(element){
+    let table = getTable();
     let tableBody = table.getElementsByTagName('tbody')[0];
     let keys = Object.keys(element);
     let row = tableBody.insertRow(-1);
     let checkButton =   '<input type="checkbox" class="checkDelete" id="' + element.id + '">' + 
                         '<label for="' + element.id + '"></label>';
     let cell = row.insertCell(-1);
-    let actionsButton = '<a class="btn edit" type="button" id="edit-' + element.id + '">Editar</a>' + 
-                        '<a class="btn delete" type="button" id="delete-' + element.id + '">Eliminar</a>';
+    let actionsButton = '<button type="button" class="btn edit btn-outline-secondary rounded-pill me-2" id="edit-' + element.id + '">Editar</button>' + 
+                        '<button type="button" class="btn delete btn-outline-danger rounded-pill" id="delete-' + element.id + '">Eliminar</button>';
     cell.classList.add('checkbox-group');
     cell.innerHTML = checkButton;
     for(let i = 0; i < keys.length; i++){
@@ -81,7 +140,7 @@ function appendElementTable(key, element){
             cell.innerHTML = element[k];
         }
     }
-    if(key == GLOBAL_KEYS.CARRERAS){
+    if(globalKey == GLOBAL_KEYS.CARRERAS){
         let materiasButton = '<a class="btn materias-btn" type="button" id="materias-' + element.id + '">Ver listado</a>'
         cell = row.insertCell(-1);
         cell.classList.add('td-btn');
@@ -90,21 +149,176 @@ function appendElementTable(key, element){
     cell = row.insertCell(-1);
     cell.classList.add('td-btn');
     cell.innerHTML = actionsButton;
+    loadFilters();
 }
 
-
-window.addEventListener("load", function(){
-    let deleteButtons = document.getElementsByClassName('delete');
-    for (let btnDelete of deleteButtons) {
-        btnDelete.onclick = function() {
-            let actionsButton = this.parentElement;
-            let row = actionsButton.parentElement;
-            let tbody = row.parentElement;
-            let table = tbody.parentElement;
-            let key = table.id.replace("tabla", "").toLowerCase();
-            let id = btnDelete.id.replace("delete-", "");
-            table.deleteRow(row.rowIndex);
-            removeItem(key, id);
+function getFilters(){
+    let checksFilters = document.getElementsByClassName("check-filter");
+    let filters = [];
+    for (let c of checksFilters) {
+        if(c.checked){
+            filters.push(c.id.replace("f-", ""));
         }
     }
+    return filters;
+}
+
+function searchValue(inputValue){
+    let rows = getTable().rows;
+    let cells = [];
+    let cellsValue = '';
+    let colValue = '';
+    let filters = getFilters();
+    let value;
+    for(let i = 1; i < rows.length; i++) {
+        cells = rows[i].cells;
+        for(let j = 0; j < cells.length; j++) {
+            colValue = rows[0].cells[j].innerHTML;
+            if(filters.includes(colValue)){
+                cellsValue += cells[j].innerHTML;
+            }
+        }
+        value = cellsValue.toLowerCase().indexOf(inputValue) !== -1
+        rows[i].style.display = value ? '' : 'none';
+        cellsValue = '';
+    }
+}
+
+function deleteRowElement(btnDelete){
+    let actionsButton = btnDelete.parentElement;
+    let row = actionsButton.parentElement;
+    let tbody = row.parentElement;
+    let table = tbody.parentElement;
+    let id = btnDelete.id.replace("delete-", "");
+    table.deleteRow(row.rowIndex);
+    removeItem(id);
+}
+
+function getChecksIds(){
+    let checks = document.getElementsByClassName("checkDelete");
+    let ids = [];
+    for (let c of checks) {
+        if(c.checked){
+            ids.push(c.id);
+        }
+    }
+    return ids;
+}
+
+function checkDeleteMultiple(){
+    if(getChecksIds().length == 0){
+        noChecksModal.show();
+    }else{
+        deleteMultipleModal.show();
+    }
+}
+
+function getElementInputs(){
+    let form = document.getElementById("elementForm");
+    return form.getElementsByClassName("form-control");
+}
+
+function clearElementModal(){
+    for (let i of getElementInputs()) {
+        i.value = '';
+    }
+}
+
+function showSaveOrUpdateModal(id){
+    clearElementModal();
+    document.getElementById("ElementModalLabel").innerHTML = getTitleElementModal(id);
+    if(id !== 0){
+        let element = getElementById(id);
+        for (let i of getElementInputs()) {
+            i.value = element[i.name];
+        }
+    }
+    elementModal.show();
+}
+
+function saveOrUpdateElement(){
+    let element = getVoidElement();
+    for (let i of getElementInputs()) {
+        element[i.name] = i.value;
+    }
+
+    if(element.id == 0){
+        element.id = generateId();
+        addItem(element);
+    }else{
+        updateItem(element);
+    }
+
+    loadElementTable();
+    elementModal.hide();
+}
+
+//EVENTS
+window.addEventListener("load", function(){
+    let deleteButtons = document.getElementsByClassName("delete");
+    for (let btnDelete of deleteButtons) {
+        btnDelete.addEventListener("click", function() {
+            deleteModal.show();
+        });
+    }
+
+    let editButtons = document.getElementsByClassName("edit");
+    for (let btnEdit of editButtons) {
+        btnEdit.addEventListener("click", function() {
+            showSaveOrUpdateModal(btnEdit.id.replace("edit-", ""));
+        });
+    }
 });
+
+document.getElementById("deleteElement").addEventListener("click", function() {
+    let btnDeleteId = document.getElementById("elementId").value;
+    let btnDelete = document.getElementById("delete-" + btnDeleteId);
+    deleteRowElement(btnDelete);
+});
+
+document.getElementById("input-find").addEventListener("input", function(){
+    searchValue(this.value.toLowerCase());
+});
+
+document.getElementById("deleteMultiple").addEventListener("click", function(){
+    checkDeleteMultiple();
+});
+
+document.getElementById("create").addEventListener("click", function(){
+    showSaveOrUpdateModal(0)
+});
+
+document.getElementById("deleteMultipleElements").addEventListener("click", function(){
+    let ids = getChecksIds();
+    let btnDeleteId = '';
+    for(let i = 0; i < ids.length; i++) {
+        btnDeleteId = "delete-" + ids[i];
+        deleteRowElement(document.getElementById(btnDeleteId));
+    }
+});
+
+document.getElementById("checkMultiple").addEventListener("click", function(){
+    let checks = document.getElementsByClassName("checkDelete");
+    for (let c of checks) {
+        c.checked = this.checked;
+    }
+});
+
+document.getElementById("elementForm").addEventListener("submit", function(event){
+    if(this.checkValidity()){
+        event.preventDefault();
+        saveOrUpdateElement();
+        return false;
+    }
+});
+
+//PROTOTYPES
+function getElementById(id){}
+
+function getVoidElement(){}
+
+function createElement(){}
+
+function loadElementTable(){}
+
+function getTitleElementModal(id){}
