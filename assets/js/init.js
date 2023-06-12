@@ -18,5 +18,15 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         });
     }
+
+    if(localStorage.getItem(GLOBAL_KEYS.MATERIAS) == null && globalKey == ""){
+        globalKey = GLOBAL_KEYS.MATERIAS;
+        readJSON(GLOBAL_VALUES.MATERIAS_JSON, function(text){
+            if(globalKey == GLOBAL_KEYS.MATERIAS){
+                let materias = JSON.parse(text);
+                setJSON(materias);
+            }
+        });
+    }
     
 });

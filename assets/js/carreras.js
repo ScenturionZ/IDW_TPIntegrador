@@ -1,13 +1,21 @@
+//MODAL
+var listModal = new bootstrap.Modal(document.getElementById("verListaModal"), {});
+
+//FUNCTIONS
 function getCarreras(){
-    return getJSON(GLOBAL_KEYS.CARRERAS);
+    return getJSON();
+}
+
+function getMaterias(){
+    return JSON.parse(localStorage.getItem(GLOBAL_KEYS.MATERIAS));
 }
 
 function removeCarrera(id){
-    removeItem(GLOBAL_KEYS.CARRERAS, id)
+    removeItem(id)
 }
 
 function addCarrera(element){
-    addItem(GLOBAL_KEYS.CARRERAS, element);
+    addItem(element);
 }
 
 function createCarrera(){
@@ -16,24 +24,67 @@ function createCarrera(){
     addEstudiante(element);
 }
 
-function loadCarreraTable(){
+getElementById = function (id){
+    return getCarreras().find(e => e.id == id);
+}
+
+loadElementTable = function (){
+    getTable().getElementsByTagName('tbody')[0].innerHTML = '';
     let array = getCarreras();
-    for (let e of array) {
-        appendElementTable(GLOBAL_KEYS.CARRERAS, e);
+    if(array == null){
+        readJSON(GLOBAL_VALUES.CARRERAS_JSON, function(text){
+            let carreras = JSON.parse(text);
+            setJSON(carreras);
+            for (let e of getCarreras()) {
+                appendElementTable(e);
+            }
+        });
+    }else{
+        for (let e of array) {
+            appendElementTable(e);
+        }
+    }
+}
+
+
+function modalVerMaterias(id){
+    let ul = document.getElementById("ulModalMaterias");
+    let materias = searchMateriasByIdCarrera(id);
+    ul.innerHTML = "";
+    for (let m of materias){
+        const li = document.createElement("li");
+        li.classList.add('list-group-item');
+        li.innerHTML = m;
+        ul.appendChild(li);
     }
 }
 
 function searchMateriasByIdCarrera(id){
-    let materias = getJSON(GLOBAL_KEYS.MATERIAS);
+    let materias = getMaterias();
+    console.log(materias);
     let materiasByCarrera = [];
     for (let e of materias){
         if (e.id_carrera == id ){
             materiasByCarrera.push(e.nombre);
         }
     }
+    console.log(materiasByCarrera);
     return materiasByCarrera;
 }
 
+//EVENTS
 document.addEventListener("DOMContentLoaded", function(){
-    loadCarreraTable()
+    globalKey = GLOBAL_KEYS.CARRERAS;
+    loadElementTable();
 });
+
+window.addEventListener("load", function(){
+    let materiasButtons = document.getElementsByClassName("materias-btn");
+    for (let btn of materiasButtons) {
+        btn.addEventListener("click", function() {
+            let id = this.id.replace("materias-", "");
+            modalVerMaterias(id)
+            listModal.show();
+        });
+    }});
+

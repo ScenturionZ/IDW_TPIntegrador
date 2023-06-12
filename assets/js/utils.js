@@ -7,7 +7,8 @@ const GLOBAL_KEYS = {
 
 const GLOBAL_VALUES = {
                         ESTUDIANTES_JSON: "./assets/json/estudiantes.json",
-                        CARRERAS_JSON: "./assets/json/carreras.json"
+                        CARRERAS_JSON: "./assets/json/carreras.json",
+                        MATERIAS_JSON: "./assets/json/materias.json"
                     }
 
 var globalKey = '';
