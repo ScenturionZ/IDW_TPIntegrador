@@ -30,8 +30,18 @@ getVoidElement = function(){
 loadElementTable = function (){
     getTable().getElementsByTagName('tbody')[0].innerHTML = '';
     let array = getEstudiantes();
-    for (let e of array) {
-        appendElementTable(e);
+    if(array == null){
+        readJSON(GLOBAL_VALUES.ESTUDIANTES_JSON, function(text){
+            let estudiantes = JSON.parse(text);
+            setJSON(estudiantes);
+            for (let e of getEstudiantes()) {
+                appendElementTable(e);
+            }
+        });
+    }else{
+        for (let e of array) {
+            appendElementTable(e);
+        }
     }
 }
 
@@ -50,10 +60,10 @@ getTitleElementModal = function(id){
 //EVENTS
 document.addEventListener("DOMContentLoaded", function(){
     globalKey = GLOBAL_KEYS.ESTUDIANTES;
+    loadElementTable();
 });
 
 window.addEventListener("load", function(){
-    loadElementTable();
     let deleteButtons = document.getElementsByClassName("delete");
     for (let btnDelete of deleteButtons) {
         btnDelete.addEventListener("click", function() {

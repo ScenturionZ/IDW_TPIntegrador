@@ -35,7 +35,6 @@ var elementModal = new bootstrap.Modal(document.getElementById("ElementModal"), 
           event.preventDefault()
           event.stopPropagation()
         }
-
         form.classList.add('was-validated')
       }, false)
     })
