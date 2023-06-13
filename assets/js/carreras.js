@@ -61,14 +61,12 @@ function modalVerMaterias(id){
 
 function searchMateriasByIdCarrera(id){
     let materias = getMaterias();
-    console.log(materias);
     let materiasByCarrera = [];
     for (let e of materias){
         if (e.id_carrera == id ){
             materiasByCarrera.push(e.nombre);
         }
     }
-    console.log(materiasByCarrera);
     return materiasByCarrera;
 }
 
@@ -86,5 +84,6 @@ window.addEventListener("load", function(){
             modalVerMaterias(id)
             listModal.show();
         });
-    }});
+    }
+});
 

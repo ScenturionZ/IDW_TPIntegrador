@@ -138,6 +138,9 @@ function appendElementTable(element){
             cell.innerHTML = "0" + element[k];
         else{
             cell.innerHTML = element[k];
+            if(globalKey == GLOBAL_KEYS.MATERIAS && k == "id_carrera"){
+                cell.classList.add('materia-carrera');
+            }
         }
     }
     if(globalKey == GLOBAL_KEYS.CARRERAS){
@@ -266,6 +269,21 @@ window.addEventListener("load", function(){
     for (let btnEdit of editButtons) {
         btnEdit.addEventListener("click", function() {
             showSaveOrUpdateModal(btnEdit.id.replace("edit-", ""));
+        });
+    }
+
+    let checks = document.getElementsByClassName("check-filter");
+    for (let check of checks) {
+        check.addEventListener("click", function() {
+            let input = document.getElementById("input-find");
+            searchValue(input.value.toLowerCase());
+        });
+    }
+
+    let inputs = document.getElementsByClassName("onlyNumbers");
+    for (let input of inputs) {
+        input.addEventListener("input", function() {
+            this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');
         });
     }
 });

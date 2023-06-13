@@ -1,6 +1,6 @@
 //FUNCTIONS
 function getEstudiantes(){
-    return getJSON(globalKey);
+    return getJSON();
 }
 
 function removeEstudiante(id){
@@ -70,13 +70,6 @@ window.addEventListener("load", function(){
             let id = this.id.replace("delete-", "");
             document.getElementById("elementId").value = id;
             document.getElementById("estudianteName").innerHTML = getNameEstudianteById(id);
-        });
-    }
-
-    let inputs = document.getElementsByClassName("onlyNumbers");
-    for (let input of inputs) {
-        input.addEventListener("input", function() {
-            this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');
         });
     }
 });
