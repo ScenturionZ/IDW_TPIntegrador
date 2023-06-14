@@ -7,71 +7,130 @@
     <meta name="keywords" content="universidad bedelia uner">
 
     <title>Contacto</title>
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="assets/boostrap/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style2.css" type="text/css">
 
+    <script src="assets/boostrap/js/bootstrap.bundle.js"></script>
 </head>
 <body>
-    <!--Navbar-->
-    <nav class="navbar box-shadow">
-        <ul class="nav">
-            <a href="carreras.html">Carreras</a>
-            <a href="materias.html">Materias</a>
-            <a href="index.html">
-                <img id="logo-uner" src="assets/img/unerLogo.png"/>
-            </a>
-            <a href="estudiantes.html">Estudiantes</a>
-            <a href="contacto.html">Contacto</a>
-        </ul>
-    </nav>
-    <div class="grid">
-        <!--First section-->
-        <div class="card card-left">
-          <h2>Contacto UNER</h2>
-          <div class="content">
-            <h4>Rectorado UNER</h4>
-            <p>Eva Perón N°24, Concepción del Uruguay<br>Teléfono: 3442 421556</p>
-            <hr>
-            <h4>Facultad de Bromatología</h4>
-            <p>Email: inscripciones.fb@uner.edu.ar</p>
-            <hr>
-            <h4>Facultad de Ciencias Agropecuarias</h4>
-            <p>Email: ingresantes.fca@uner.edu.ar</p>
-            <hr>
-            <h4>Facultad de Ciencias de la Administración</h4>
-            <p>Email: informes.fcad@uner.edu.ar</p>
-            <hr>
-            <h4>Facultad de Ciencias de la Alimentación</h4>
-            <p>Email: alumnado.fcal@uner.edu.ar</p>
-            <hr>
-            <h4>Facultad de Ciencias de la Educación</h4>
-            <p>Email: aci.fcedu@uner.edu.ar</p>
-            <hr>
-            <h4>Facultad de Ciencias de la Salud</h4>
-            <p>Email: extension.fcs@uner.edu.ar</p>
-            <hr>
-            <h4>Facultad de Ciencias Económicas</h4>
-            <p>Email: ingresantes@fceco.uner.edu.ar</p>
-            <hr>
-            <h4>Facultad de Ingeniería</h4>
-            <p>Email: extension.ingenieria@uner.edu.ar</p>
-            <hr>
-            <h4>Facultad de Trabajo Social</h4>
-            <p>Email: difusiondecarreras.fts@uner.edu.ar</p>
-          </div>
+    <nav class="navbar navbar-expand-md bg-dark border-bottom border-bottom-dark justify-content-md-center" data-bs-theme="dark">
+        <a class="navbar-brand d-md-none d-inline" href="">
+            <img class="logo-uner" src="assets/img/unerLogo.png"/>
+        </a>
+        <button class="navbar-toggler ml-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+            <ul class="navbar-nav mx-auto text-md-center fs-4">
+                <li class="nav-item px-md-5 py-3">
+                    <a class="nav-link" href="carreras.html">Carreras</a>
+                </li>
+                <li class="nav-item px-md-5 py-3">
+                    <a class="nav-link" href="materias.html">Materias</a>
+                </li>
+                <li class="nav-item px-md-5">
+                    <a class="nav-link navbar-brand mx-0 d-none d-md-inline" href="index.html">
+                        <img class="logo-uner" src="assets/img/unerLogo.png"/>
+                    </a>
+                </li>
+                <li class="nav-item px-md-5 py-3">
+                    <a class="nav-link" href="estudiantes.html">Estudiantes</a> 
+                </li>
+                <li class="nav-item px-md-5 py-3">
+                    <a class="nav-link" href="contacto.html">Contacto</a> 
+                </li>
+            </ul>
         </div>
-        <hr class="vertical">
-        <!--Second section-->
-        <div class="card card-right">
-            <h2>Soporte Tecnico</h2>
-            <div class="content">
-                <h4>Sebastián Ignacio Centurion</h4>
-                <p>Email: sebastian.ignacio.centurion@gmail.com</p>
-                <hr>
-                <h4>María Emilia Walter</h4>
-                <p>Email: eemi.walter@gmail.com</p>
+    </nav>
+    <section class="container mt-5 justify-content-md-center">
+        <div class="row justify-content-between w-100">
+            <div class="col col-md-5 col-12">
+                <h2 class="border-bottom border-primary border-5 opacity-100 title-contacto fw-bolder">Contacto UNER</h2>
+                <ol class="list-group list-group-flush ol-contacto">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Rectorado UNER</div>
+                            <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADGUlEQVR4nO2aS0hVURSG/8pepDWM7AFFBZk1CdTuXeucHko2qAbRpGkkiaLUJCcNgmjeoIggEGleNGkShRSRSJNUGkVBZVH0VkrF/tjn3m5iaXuf1z1CCxZcLpd//9866yz22ecC/6MQVKyloIWKHgoeUfCOggkqxql4S0U/Bd1UHGMO1chKUNBMxV0qJqmgZZrf3qagsbzGBX0Opv+eggepgrARKyi4Ftn4nyDdzKEqWfMeNlHwJHbzWsoh+tiYlPltFLxJ0DyLV2KYHrbEaz6HagpeJG5eS/mKPtbEY34HFgYjMD3zLOZD+qiIDqA4WwbzLOaZaObzWEfBN8cefkwPncxjK5uwLEjz2XwnGHAEGGUDVkep/kUH498paCUwf0a9I1hARRsVYw4QF8KZz6GKii/W5j3sdijMHmsIwSdzFd0BFIcdqnQihH67g/4hdwDBZeuen6Vt/tFOg5YAl8IA2O1zBB3O4r/XOGkJcN9dvLAFtgGoCQ3go9Zyjdfu4ubGtBH3URkaIBcMCqsh4S5uZrCNeIQdJOuw3BLgq7u44FlmWkjxNAxAr5W4h87Eb2LBnTDi5y3FB8xIDDlGhyyvwDl3gDz2W4qbbHPWF3Q46O9zB2jGYio+WC4wRsFeB/ONxdMKWuR71mCRM0CwkOKKQ5XM3qZ9tnYK2qZQeVvzNDuCUOaLlap3APiVg8HNaSaMj8pi1lJwyqHnOSXrQgMEEIp7IRaNJwW9kcwHAB4Olg0gjwORAQIIc/iUfvX7CMyLB0DhpQ7g2T8g2UEIbqQIcD1W81Me8EdSMD9KxfrYAQIIRVcKvX86EfMBgI+KhG/ofnOQlhhAACHYYH1a4Vb5EQo2J2p+CkRLAgDHUzFfglDcjBHgVmwz3xqgHiuDo/DolR82WqmaL0F42Ol4TDg9x+lBy2K+BFE46wxb/VZkIai4GgKgB1kJNmCp40uQfvpYgiwFFauoeG5h/mVsr4/iDnNGRMHHWcx/pmA7shzMY9cMk8lMnCbMhaCHo9P+ejBpvsNcCprXTQXzP8K8AEEWorj97kpykZ+xubp/rAMA/QAAAABJRU5ErkJggg==">Eva Perón N°24, Concepción del Uruguay<br>
+                                <img src="assets/icons/phone.svg"></img>3442 421556</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Facultad de Bromatología</div>
+                            <p class="font-monospace"><img src="assets/icons/mail.svg"></img>inscripciones.fb@uner.edu.ar</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Facultad de Ciencias Agropecuarias</div>
+                            <p><img src="assets/icons/mail.svg"></img>ingresantes.fca@uner.edu.ar</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Facultad de Ciencias de la Administración</div>
+                            <p><img src="assets/icons/mail.svg"></img>informes.fcad@uner.edu.ar</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Facultad de Ciencias de la Alimentación</div>
+                            <p><img src="assets/icons/mail.svg"></img>alumnado.fcal@uner.edu.ar</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Facultad de Ciencias de la Educación</div>
+                            <p><img src="assets/icons/mail.svg"></img>aci.fcedu@uner.edu.ar</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Facultad de Ciencias de la Salud</div>
+                            <p><img src="assets/icons/mail.svg"></img>extension.fcs@uner.edu.ar</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Facultad de Ciencias Económicas</div>
+                            <p><img src="assets/icons/mail.svg"></img>ingresantes@fceco.uner.edu.ar</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Facultad de Ingeniería</div>
+                            <p><img src="assets/icons/mail.svg"></img>extension.ingenieria@uner.edu.ar</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Facultad de Trabajo Social</div>
+                            <p><img src="assets/icons/mail.svg">difusiondecarreras.fts@uner.edu.ar</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <div class="col">
+                <hr class="vertical">
+            </div>
+            <div class="col col-md-5 col-12">
+                <h2 class="border-bottom border-primary border-5 opacity-100 title-contacto fw-bolder">Soporte Tecnico</h2>
+                <ol class="list-group list-group-flush ol-contacto">
+                    <li class="list-group-item d-flext li-programmer">
+                        <div>
+                            <div class="fw-bold">Sebastián Ignacio Centurion<img src="assets/icons/code.svg"></div>
+                            <p><img src="assets/icons/mail.svg"></img>sebastian.ignacio.centurion@gmail.com</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex li-programmer">
+                        <div>
+                            <div class="fw-bold">María Emilia Walter<img src="assets/icons/code.svg"></div>
+                            <p><img src="assets/icons/mail.svg">eemi.walter@gmail.com</p>
+                        </div>
+                    </li>
+                </ol>
             </div>
         </div>
-    </div>
-    <!--Join us-->
+    </section>
 </body>
 </html>

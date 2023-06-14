@@ -90,6 +90,4 @@ window.addEventListener("load", function(){
             document.getElementById("materiaName").innerHTML = getNameMateriaById(id);
         });
     }
-
-
 });

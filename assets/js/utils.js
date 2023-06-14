@@ -14,13 +14,21 @@ const GLOBAL_VALUES = {
 var globalKey = '';
 
 //MODALS
-var noChecksModal = new bootstrap.Modal(document.getElementById("noChecksModal"), {});
+if(document.getElementById("noChecksModal")){
+    var noChecksModal = new bootstrap.Modal(document.getElementById("noChecksModal"), {});
+}
 
-var deleteMultipleModal = new bootstrap.Modal(document.getElementById("deleteMultipleModal"), {});
+if(document.getElementById("deleteMultipleModal")){
+    var deleteMultipleModal = new bootstrap.Modal(document.getElementById("deleteMultipleModal"), {});
+}
 
-var deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"), {});
+if(document.getElementById("deleteModal")){
+    var deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"), {});
+}
 
-var elementModal = new bootstrap.Modal(document.getElementById("ElementModal"), {});
+if(document.getElementById("ElementModal")){
+    var elementModal = new bootstrap.Modal(document.getElementById("ElementModal"), {});
+}
 
 //BOOSTRAP VALIDATE
 (() => {
@@ -288,47 +296,61 @@ window.addEventListener("load", function(){
     }
 });
 
-document.getElementById("deleteElement").addEventListener("click", function() {
-    let btnDeleteId = document.getElementById("elementId").value;
-    let btnDelete = document.getElementById("delete-" + btnDeleteId);
-    deleteRowElement(btnDelete);
-});
+if(document.getElementById("deleteElement")){
+    document.getElementById("deleteElement").addEventListener("click", function() {
+        let btnDeleteId = document.getElementById("elementId").value;
+        let btnDelete = document.getElementById("delete-" + btnDeleteId);
+        deleteRowElement(btnDelete);
+    });
+}
 
-document.getElementById("input-find").addEventListener("input", function(){
-    searchValue(this.value.toLowerCase());
-});
+if(document.getElementById("input-find")){
+    document.getElementById("input-find").addEventListener("input", function(){
+        searchValue(this.value.toLowerCase());
+    });
+}
 
-document.getElementById("deleteMultiple").addEventListener("click", function(){
-    checkDeleteMultiple();
-});
+if(document.getElementById("deleteMultiple")){
+    document.getElementById("deleteMultiple").addEventListener("click", function(){
+        checkDeleteMultiple();
+    });
+}
 
-document.getElementById("create").addEventListener("click", function(){
-    showSaveOrUpdateModal(0)
-});
+if(document.getElementById("create")){
+    document.getElementById("create").addEventListener("click", function(){
+        showSaveOrUpdateModal(0)
+    });
+}
 
-document.getElementById("deleteMultipleElements").addEventListener("click", function(){
-    let ids = getChecksIds();
-    let btnDeleteId = '';
-    for(let i = 0; i < ids.length; i++) {
-        btnDeleteId = "delete-" + ids[i];
-        deleteRowElement(document.getElementById(btnDeleteId));
-    }
-});
+if(document.getElementById("deleteMultipleElements")){
+    document.getElementById("deleteMultipleElements").addEventListener("click", function(){
+        let ids = getChecksIds();
+        let btnDeleteId = '';
+        for(let i = 0; i < ids.length; i++) {
+            btnDeleteId = "delete-" + ids[i];
+            deleteRowElement(document.getElementById(btnDeleteId));
+        }
+    });
+}
 
-document.getElementById("checkMultiple").addEventListener("click", function(){
-    let checks = document.getElementsByClassName("checkDelete");
-    for (let c of checks) {
-        c.checked = this.checked;
-    }
-});
+if(document.getElementById("checkMultiple")){
+    document.getElementById("checkMultiple").addEventListener("click", function(){
+        let checks = document.getElementsByClassName("checkDelete");
+        for (let c of checks) {
+            c.checked = this.checked;
+        }
+    });
+}
 
-document.getElementById("elementForm").addEventListener("submit", function(event){
-    if(this.checkValidity()){
-        event.preventDefault();
-        saveOrUpdateElement();
-        return false;
-    }
-});
+if(document.getElementById("elementForm")){
+    document.getElementById("elementForm").addEventListener("submit", function(event){
+        if(this.checkValidity()){
+            event.preventDefault();
+            saveOrUpdateElement();
+            return false;
+        }
+    });
+}
 
 //PROTOTYPES
 function getElementById(id){}

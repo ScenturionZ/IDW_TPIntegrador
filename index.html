@@ -1,52 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="universidad bedelia uner" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="keywords" content="universidad bedelia uner" />
 
-    <title>Home</title>
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
-    <script src="assets/js/utils.js"></script>
-    <script src="assets/js/init.js"></script>
-  </head>
-  <body>
-    <!--Navbar-->
-    <nav class="navbar box-shadow">
-      <ul class="nav">
-        <a href="carreras.html">Carreras</a>
-        <a href="materias.html">Materias</a>
-        <a href="index.html">
-          <img id="logo-uner" src="assets/img/unerLogo.png" />
-        </a>
-        <a href="estudiantes.html">Estudiantes</a>
-        <a href="contacto.html">Contacto</a>
-      </ul>
-    </nav>
-    
-    <div class="background-wrap">
-      <div class="background">
-        <h3 class="title">Sistema administrativo para Bedelia</h3>
-      </div>
-    </div>
+		<title>Home</title>
+		<link rel="stylesheet" href="assets/boostrap/css/bootstrap.css">
+		<link rel="stylesheet" href="assets/css/style2.css" type="text/css">
 
-    <div class="info-container">
-      <p class="info-content">
-        Sistema de gestión administrativa para el personal de bedelia, desarrollado para la Facultad Nacional de Entre Rios. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo illum nemo reiciendis, illo eius neque, itaque magni cum omnis deleniti, ipsam quo aperiam corporis tenetur doloribus provident accusamus odit hic!
-      </p>
-    </div>
-    
-    <div class="section-institucional">
-      <div class="grid-instit">
-        <div>
-            <h4 class="title-uner">La UNER</h4>
-            <p class="text-uner">La Universidad Nacional de Entre Ríos integra el sistema público de educación superior. Considera a la educación como un derecho y un bien social, garantizando la gratuidad de los estudios de grado</p>
-        </div>
-        <div>
-            <img class="img-uner" src="assets/img/uner_9.jpg">
-        </div>
-      </div>
-    </div>
-  </body>
+		<script src="assets/boostrap/js/bootstrap.bundle.js"></script>
+		<script src="assets/js/utils.js"></script>
+		<script src="assets/js/init.js"></script>
+	</head>
+<body>
+	<nav class="navbar navbar-expand-md bg-dark border-bottom border-bottom-dark justify-content-md-center" data-bs-theme="dark">
+		<a class="navbar-brand d-md-none d-inline" href="">
+			<img class="logo-uner" src="assets/img/unerLogo.png"/>
+		</a>
+		<button class="navbar-toggler ml-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar2">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+			<ul class="navbar-nav mx-auto text-md-center fs-4">
+				<li class="nav-item px-md-5 py-3">
+					<a class="nav-link" href="carreras.html">Carreras</a>
+				</li>
+				<li class="nav-item px-md-5 py-3">
+					<a class="nav-link" href="materias.html">Materias</a>
+				</li>
+				<li class="nav-item px-md-5">
+					<a class="nav-link navbar-brand mx-0 d-none d-md-inline" href="index.html">
+							<img class="logo-uner" src="assets/img/unerLogo.png"/>
+					</a>
+				</li>
+				<li class="nav-item px-md-5 py-3">
+					<a class="nav-link" href="estudiantes.html">Estudiantes</a> 
+				</li>
+				<li class="nav-item px-md-5 py-3">
+					<a class="nav-link" href="contacto.html">Contacto</a> 
+				</li>
+			</ul>
+		</div>
+	</nav>
+	
+	<div class="bg-img bg-black">
+		<div class="container my-4 mx-auto">
+			<h3 class="title-img">Sistema administrativo para Bedelia</h3>
+		</div>
+	</div>
+	<section class="container mt-5">
+        <div class="row justify-content-between w-100">
+			<div class="col col-12">
+				Sistema de gestión administrativa para el personal de bedelia, desarrollado para la Facultad Nacional de Entre Rios. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo illum nemo reiciendis, illo eius neque, itaque magni cum omnis deleniti, ipsam quo aperiam corporis tenetur doloribus provident accusamus odit hic!
+			</div>
+			<hr class="border border-dark border-2 opacity-100 my-3">
+			<div class="col col-md-6 col-12">
+				<h3 class="title-uner">Sobre la Institucion</h3>
+				<p class="text-uner">La Universidad Nacional de Entre Ríos integra el sistema público de educación superior. Considera a la educación como un derecho y un bien social, garantizando la gratuidad de los estudios de grado</p>
+			</div>
+			<div class="col col-md-6 col-12">
+				<img src="assets/img/uner_9.jpg" class="rounded mx-auto img-fluid" alt="...">
+			</div>
+		</div>
+	</section>
+</body>
 </html>
