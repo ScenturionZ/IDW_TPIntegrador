@@ -162,8 +162,13 @@
                           </div>
                         </div>
                         <div class="col-md-6">
-                          <label for="validationCustom02" class="form-label">Apellido</label>
-                          <input type="text" class="form-control" id="validationCustom02" name="apellido" required>
+                            <label for="validationCustom02" class="form-label">Tipo</label>
+                            <select class="form-select form-control" aria-label="Selector" id="validationCustom02" name="tipo" required>
+                                <option selected>Selecciona una para continuar</option>
+                                <option value="GRADO">GRADO</option>
+                                <option value="PREGRADO">PREGRADO</option>
+                                <option value="POSTGRADO">POSTGRADO</option>
+                              </select>
                           <div class="valid-feedback">
                             Valido! :D
                           </div>
@@ -172,8 +177,8 @@
                           </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="validationCustom00" class="form-label">DNI</label>
-                            <input type="text" id="validationCustom00" class="form-control onlyNumbers" pattern=".{0}|.{8,}" maxlength="9" required name="dni"/>
+                            <label for="validationCustom00" class="form-label">Duracion</label>
+                            <input type="text" id="validationCustom00" class="form-control onlyNumbers" pattern=".{0}|.{1,}" maxlength="2" required name="duracion"/>
                             <div class="valid-feedback">
                               Valido! :D
                             </div>
@@ -182,8 +187,12 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                          <label for="validationCustom03" class="form-label">Email</label>
-                          <input type="email" class="form-control" id="validationCustom03" name="email" required>
+                          <label for="validationCustom03" class="form-label">Modalidad</label>
+                          <select class="form-select form-control" aria-label="Selector" id="validationCustom03" name="modalidad" required>
+                            <option selected>Selecciona una para continuar</option>
+                            <option value="presencial">PRESENCIAL</option>
+                            <option value="virtual">VIRTUAL</option>
+                          </select>
                           <div class="valid-feedback">
                             Valido! :D
                           </div>

@@ -1,6 +1,17 @@
 //MODAL
 var listModal = new bootstrap.Modal(document.getElementById("verListaModal"), {});
 
+//OVERRIDES
+getVoidElement = function(){
+    return {
+        id : 0,
+        nombre : '',
+        tipo : '',
+        modalidad : '',
+        duracion : 0
+    }
+}
+
 //FUNCTIONS
 function getCarreras(){
     return getJSON();
@@ -18,15 +29,25 @@ function addCarrera(element){
     addItem(element);
 }
 
-function createCarrera(){
-    //leemos inputs y seteamos ID
-    //creas element
-    addEstudiante(element);
+function getNameCarreraById(id){
+    let carrera = getElementById(id);
+    return carrera.nombre;
+}
+
+
+getTitleElementModal = function(id){
+    let value = 'Nueva carrera'
+    if(id !== 0){
+        value = 'Editar a ' + getNameCarreraById(id);
+    }
+    return value;
 }
 
 getElementById = function (id){
     return getCarreras().find(e => e.id == id);
 }
+
+
 
 loadElementTable = function (){
     getTable().getElementsByTagName('tbody')[0].innerHTML = '';
@@ -87,3 +108,13 @@ window.addEventListener("load", function(){
     }
 });
 
+window.addEventListener("load", function(){
+    let deleteButtons = document.getElementsByClassName("delete");
+    for (let btnDelete of deleteButtons) {
+        btnDelete.addEventListener("click", function() {
+            let id = this.id.replace("delete-", "");
+            document.getElementById("elementId").value = id;
+            document.getElementById("carreraName").innerHTML = getNameCarreraById(id);
+        });
+    }
+});
