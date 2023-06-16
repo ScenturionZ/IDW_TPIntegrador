@@ -23,7 +23,10 @@ getVoidElement = function(){
         nombre : '',
         apellido : '',
         dni : '',
-        email : ''
+        email : '',
+        telefono: 0,
+        nacionalidad: '',
+        nacimiento: Date(),
     }
 }
 

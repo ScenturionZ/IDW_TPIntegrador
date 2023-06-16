@@ -7,7 +7,7 @@
       "email": "thomasedison123@gmail.com",
       "telefono": "3456540454",
       "nacionalidad":"Argentina",
-      "nacimiento": "20/12/2003"
+      "nacimiento": "2003-12-03"
     },
     {
       "id": "2",
@@ -17,7 +17,7 @@
       "email": "emiliaedison4321@gmail.com",
       "telefono": "3455204994",
       "nacionalidad":"Argentina",
-      "nacimiento": "15/01/1990"
+      "nacimiento": "1990-01-15"
     },
     {
       "id": "3",
@@ -27,7 +27,7 @@
       "email": "molliebradley@google.com",
       "telefono": "3455204006",
       "nacionalidad":"Argentina",
-      "nacimiento": "12/09/2000"
+      "nacimiento": "2000-09-12"
     },
     {
       "id": "4",
@@ -37,7 +37,7 @@
       "email": "declanwhitley@protonmail.com",
       "telefono": "3456052313",
       "nacionalidad":"Argentina",
-      "nacimiento": "23/10/1998"
+      "nacimiento": "1998-10-23"
     },
     {
       "id": "5",
@@ -47,7 +47,7 @@
       "email": "charlottewalls@google.com",
       "telefono": "3454651400",
       "nacionalidad":"Argentina",
-      "nacimiento": "05/08/1995"
+      "nacimiento": "1995-08-05"
     },
     {
       "id": "6",
@@ -57,7 +57,7 @@
       "email": "buffyworkman7740@outlook.com",
       "telefono": "3456051323",
       "nacionalidad":"Argentina",
-      "nacimiento": "30/11/2001"
+      "nacimiento": "2001-11-30"
     },
     {
       "id": "7",
@@ -67,6 +67,6 @@
       "email": "rahimhensley5975@outlook.com",
       "telefono": "3456521102",
       "nacionalidad":"Argentina",
-      "nacimiento": "02/06/1999"
+      "nacimiento": "1999-06-02"
     }
 ]
