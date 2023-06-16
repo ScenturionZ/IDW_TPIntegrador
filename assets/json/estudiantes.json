@@ -4,48 +4,69 @@
       "nombre": "Thomas",
       "apellido": "Edison",
       "dni": "12345678",
-      "email": "thomasedison123@gmail.com"
+      "email": "thomasedison123@gmail.com",
+      "telefono": "3456540454",
+      "nacionalidad":"Argentina",
+      "nacimiento": "20/12/2003"
     },
     {
       "id": "2",
       "nombre": "Emilia",
       "apellido": "Edison",
       "dni": "12764257",
-      "email": "emiliaedison4321@gmail.com"
+      "email": "emiliaedison4321@gmail.com",
+      "telefono": "3455204994",
+      "nacionalidad":"Argentina",
+      "nacimiento": "15/01/1990"
     },
     {
       "id": "3",
       "nombre": "Mollie",
       "apellido": "Bradley",
       "dni": "54838485",
-      "email": "molliebradley@google.com"
+      "email": "molliebradley@google.com",
+      "telefono": "3455204006",
+      "nacionalidad":"Argentina",
+      "nacimiento": "12/09/2000"
     },
     {
       "id": "4",
       "nombre": "Declan",
       "apellido": "Whitley",
       "dni": "62208582",
-      "email": "declanwhitley@protonmail.com"
+      "email": "declanwhitley@protonmail.com",
+      "telefono": "3456052313",
+      "nacionalidad":"Argentina",
+      "nacimiento": "23/10/1998"
     },
     {
       "id": "5",
       "nombre": "Charlotte",
       "apellido": "Walls",
       "dni": "29883654",
-      "email": "charlottewalls@google.com"
+      "email": "charlottewalls@google.com",
+      "telefono": "3454651400",
+      "nacionalidad":"Argentina",
+      "nacimiento": "05/08/1995"
     },
     {
       "id": "6",
       "nombre": "Buffy",
       "apellido": "Workman",
       "dni": "84840037",
-      "email": "buffyworkman7740@outlook.com"
+      "email": "buffyworkman7740@outlook.com",
+      "telefono": "3456051323",
+      "nacionalidad":"Argentina",
+      "nacimiento": "30/11/2001"
     },
     {
       "id": "7",
       "nombre": "Rahim",
       "apellido": "Hensley",
       "dni": "93558874",
-      "email": "rahimhensley5975@outlook.com"
+      "email": "rahimhensley5975@outlook.com",
+      "telefono": "3456521102",
+      "nacionalidad":"Argentina",
+      "nacimiento": "02/06/1999"
     }
 ]

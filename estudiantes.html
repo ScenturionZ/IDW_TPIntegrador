@@ -9,7 +9,7 @@
     <title>Estudiantes</title>
 
     <link rel="stylesheet" href="assets/boostrap/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style2.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
     <script src="assets/boostrap/js/bootstrap.bundle.js"></script>
     <script src="assets/js/utils.js" defer></script>
@@ -76,6 +76,9 @@
                     <th scope="col" class="filter">Apellido</th>
                     <th scope="col" class="filter">DNI</th>
                     <th scope="col" class="filter">Email</th>
+                    <th scope="col" class="filter">Telefono</th>
+                    <th scope="col" class="filter">Nacionalidad</th>
+                    <th scope="col" class="filter">Fecha de nacimiento</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -188,6 +191,41 @@
                         Invalido! :C
                       </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <label for="validationCustom04" class="form-label">Telefono</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">+54</span>
+                            <input type="phone" class="form-control" id="validationCustom04" name="telefono" required>
+                        </div>
+                        <div class="valid-feedback">
+                          Valido! :D
+                        </div>
+                        <div class="invalid-feedback">
+                          Invalido! :C
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="validationCustom05" class="form-label">Nacionalidad</label>
+                        <input type="text" class="form-control" id="validationCustom05" name="nacionalidad" required>
+                        <div class="valid-feedback">
+                          Valido! :D
+                        </div>
+                        <div class="invalid-feedback">
+                          Invalido! :C
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="validationCustom06" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" id="validationCustom06" name="nacimiento" required>
+                        <div class="valid-feedback">
+                          Valido! :D
+                        </div>
+                        <div class="invalid-feedback">
+                          Invalido! :C
+                        </div>
+                      </div>
+
                     <div class="col-12">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>

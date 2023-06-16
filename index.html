@@ -8,7 +8,7 @@
 
 		<title>Home</title>
 		<link rel="stylesheet" href="assets/boostrap/css/bootstrap.css">
-		<link rel="stylesheet" href="assets/css/style2.css" type="text/css">
+		<link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
 		<script src="assets/boostrap/js/bootstrap.bundle.js"></script>
 		<script src="assets/js/utils.js"></script>
@@ -50,19 +50,66 @@
 			<h3 class="title-img">Sistema administrativo para Bedelia</h3>
 		</div>
 	</div>
-	<section class="container mt-5">
-        <div class="row justify-content-between w-100">
-			<div class="col col-12">
+	<section class="d-flex justify-content-center mt-5">
+        <div class="row justify-content-between w-75">
+			<div class="col col-12 info-content">
 				Sistema de gestión administrativa para el personal de bedelia, desarrollado para la Facultad Nacional de Entre Rios. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo illum nemo reiciendis, illo eius neque, itaque magni cum omnis deleniti, ipsam quo aperiam corporis tenetur doloribus provident accusamus odit hic!
 			</div>
-			<hr class="border border-dark border-2 opacity-100 my-3">
-			<div class="col col-md-6 col-12">
-				<h3 class="title-uner">Sobre la Institucion</h3>
-				<p class="text-uner">La Universidad Nacional de Entre Ríos integra el sistema público de educación superior. Considera a la educación como un derecho y un bien social, garantizando la gratuidad de los estudios de grado</p>
+			<hr class="border border-dark-subtle border-2 opacity-100 my-3">
+			<div class="col col-md-6 col-12 mt-5">
+				<h3 class="title-uner mb-4">Sobre la Institucion</h3>
+			<p class="text-uner me-2">La Universidad Nacional de Entre Ríos (UNER) en tanto institución autónoma y autárquica e integrante del sistema público de educación superior argentino, en un todo de acuerdo con lo establecido en la Constitución Nacional, los Tratados Internacionales –especialmente aquéllos que gozan de jerarquía constitucional-, las Leyes Nacionales en la materia y el propio Estatuto, garantiza el efectivo ejercicio del derecho de acceso a la información pública, promueve la participación ciudadana y la transparencia de la gestión pública.
+			</p>
+			<p class="text-uner me-2">En virtud de varios principios, la Universidad Nacional de Entre Ríos promueve la búsqueda, acceso y solicitud de información pública para su utilización libre y que incluye la posibilidad de recibirla, copiarla, analizarla, reprocesarla, reutilizarla, redistribuirla, etc. sin limitaciones salvo las establecidas excepcionalmente según lo establece la normativa vigente.</p>
 			</div>
-			<div class="col col-md-6 col-12">
+			<div class="col col-md-6 col-12 mt-5">
 				<img src="assets/img/uner_9.jpg" class="rounded mx-auto img-fluid" alt="...">
 			</div>
+
+			<hr class="border border-dark-subtle border-2 opacity-100 my-3">
+			<!--carousel-->
+			<div id="carousel" class="carousel slide my-5">
+				<div class="carousel-indicators">
+				  <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+				  <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+				  <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				</div>
+				<div class="carousel-inner">
+				  <div class="carousel-item active img-item-carousel">
+					<img src="/assets/img/becas.jpg" class="d-block w-100 rounded" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+					  <h3>BECAS UNIVERSITARIAS</h3>
+					  <p>Consultar listado de estudiantes con becas otorgadas por UNER</p>
+					</div>
+				  </div>
+				  <div class="carousel-item img-item-carousel">
+					<img src="assets/img/comedor.jpg" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+					  <h3>Comedor Universitario</h3>
+					  <p>Consultar y editar promociones vigentes de menu universitario</p>
+					</div>
+				  </div>
+				  <div class="carousel-item img-item-carousel">
+					<img src="assets/img/proyectos.jpg" class="d-block w-100 item-img3" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+					  <h3>Proyectos</h3>
+					  <p>Consultar informacion de proyectos vigentes.</p>
+					</div>
+				  </div>
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+				  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				  <span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+				  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				  <span class="visually-hidden">Next</span>
+				</button>
+			  </div>
+
+			  <hr class="border border-dark-subtle border-2 opacity-100 my-3">
+
+			  <!---->
 		</div>
 	</section>
 </body>

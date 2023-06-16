@@ -4,6 +4,7 @@
 :root {
     --color-pink: rgb(200, 29, 216);
     --color-darkBlue: rgb(0, 50, 98);
+    --color-lessDarkBlue: rgb(23, 94, 161);
     --color-blue: rgb(70, 133, 216);
     --color-grey: rgb(144, 144, 144);
     --color-red: rgb(241, 78, 78);
@@ -155,6 +156,37 @@ hr.vertical {
     font-weight: bold;
     color: var(--color-darkBlue);
     text-decoration: underline;
-    text-decoration-color: var(--color-darkGrey);
+    text-decoration-color: var(--color-blue);
     text-decoration-style: double;
+}
+
+.info-content {
+    color: var(--color-grey);
+    line-height: 36px;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+.text-uner {
+    color: var(--color-grey);
+    font-weight: 300;
+}
+
+.img-item-carousel{
+    height: 22rem;
+}
+
+.img-item-carousel h3{
+    text-shadow: 4px 3px 3px rgba(0,0,0,0.7);
+}
+
+.img-item-carousel p{
+    display: table;
+    margin: auto;
+    background-color: #212121;
+}
+
+.item-img3{
+    position: absolute;
+    top: -19rem;
 }

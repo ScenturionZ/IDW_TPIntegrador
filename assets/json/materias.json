@@ -3,79 +3,92 @@
         "id": 1,
         "nombre": "Botanica morfologica",
         "horas": 3,
-        "id_carrera": 1
+        "id_carrera": 1,
+        "cuatrimestre": 1
     },
     {
         "id": 2,
         "nombre": "Ingles tecnico",
         "horas": 2,
-        "id_carrera": 1
+        "id_carrera": 1,
+        "cuatrimestre": 2
     },
     {
         "id": 3,
         "nombre": "Suelos",
         "horas": 4,
-        "id_carrera": 1
+        "id_carrera": 1,
+        "cuatrimestre": 1
     },
     {
         "id": 4,
         "nombre": "Fisiologia vegetal",
         "horas": 6,
-        "id_carrera": 1
+        "id_carrera": 1,
+        "cuatrimestre": 2
     },
     {
         "id": 5,
         "nombre": "Jardineria y sociedad",
         "horas": 6,
-        "id_carrera": 1
+        "id_carrera": 1,
+        "cuatrimestre": 1
     },
     {
         "id": 6,
         "nombre": "Meteorologia aplicada",
         "horas": 3,
-        "id_carrera": 1
+        "id_carrera": 1,
+        "cuatrimestre": 2
     },
     {
         "id": 7,
         "nombre": "Introduccion a la Economia",
         "horas": 3,
-        "id_carrera": 2
+        "id_carrera": 2,
+        "cuatrimestre": 1
     },
     {
         "id": 8,
         "nombre": "Algebra",
         "horas": 4,
-        "id_carrera": 2
+        "id_carrera": 2,
+        "cuatrimestre": 2
     },
     {
         "id": 9,
         "nombre": "Sistemas y tecnologia",
         "horas": 5,
-        "id_carrera": 2
+        "id_carrera": 2,
+        "cuatrimestre": 1
     },
     {
         "id": 10,
         "nombre": "Macroeconomia",
         "horas": 2,
-        "id_carrera": 2
+        "id_carrera": 2,
+        "cuatrimestre": 2
     },
     {
         "id": 11,
         "nombre": "Contabilidad",
         "horas": 3,
-        "id_carrera": 2
+        "id_carrera": 2,
+        "cuatrimestre": 1
     },
     {
         "id": 12,
         "nombre": "Filosofia y Conocimiento cientifico",
         "horas": 2,
-        "id_carrera": 2
+        "id_carrera": 2,
+        "cuatrimestre": 2
     },
     {
         "id": 13,
         "nombre": "Sociedades y asociaciones",
         "horas": 2,
-        "id_carrera": 2
+        "id_carrera": 2,
+        "cuatrimestre": 1
     },
     {
         "id": 14,
@@ -87,192 +100,224 @@
         "id": 15,
         "nombre": "Diseño gráfico",
         "horas": 2,
-        "id_carrera": 3
+        "id_carrera": 3,
+        "cuatrimestre": 1
     },
     {
         "id": 16,
         "nombre": "Programacion II",
         "horas": 4,
-        "id_carrera": 3
+        "id_carrera": 3,
+        "cuatrimestre": 2
     },
     {
         "id": 17,
         "nombre": "Base de datos",
         "horas": 2,
-        "id_carrera": 3
+        "id_carrera": 3,
+        "cuatrimestre": 1
     },
     {
         "id": 18,
         "nombre": "Introduccion al desarrollo web",
         "horas": 4,
-        "id_carrera": 3
+        "id_carrera": 3,
+        "cuatrimestre": 2
     },
     {
         "id": 19,
         "nombre": "Sistemas operativos",
         "horas": 2,
-        "id_carrera": 3
+        "id_carrera": 3,
+        "cuatrimestre": 1
     },
     {
         "id": 20,
         "nombre": "Contabilidad I",
         "horas": 4,
-        "id_carrera": 4
+        "id_carrera": 4,
+        "cuatrimestre": 1
     },
     {
         "id": 21,
         "nombre": "Algebra aplicada a ciencias economicas",
         "horas": 2,
-        "id_carrera": 4
+        "id_carrera": 4,
+        "cuatrimestre": 2
     },
     {
         "id": 22,
         "nombre": "Microeconomia",
         "horas": 3,
-        "id_carrera": 4
+        "id_carrera": 4,
+        "cuatrimestre": 1
     },
     {
         "id": 23,
         "nombre": "Instituciones del Derecho I",
         "horas": 2,
-        "id_carrera": 4
+        "id_carrera": 4,
+        "cuatrimestre": 2
     },
     {
         "id": 24,
         "nombre": "Estadistica",
         "horas": 3,
-        "id_carrera": 4
+        "id_carrera": 4,
+        "cuatrimestre": 1
     },
     {
         "id": 25,
         "nombre": "Instituciones del Derecho II", 
         "horas": 3,
-        "id_carrera": 4
+        "id_carrera": 4,
+        "cuatrimestre": 2
     },
     {
         "id": 26,
         "nombre": "Contabilidad II",
         "horas": 4,
-        "id_carrera": 4
+        "id_carrera": 4,
+        "cuatrimestre": 1
     },
     {
         "id": 27,
         "nombre": "Administracion general",
         "horas": 4,
-        "id_carrera": 4
+        "id_carrera": 4,
+        "cuatrimestre": 2
     },
     {
         "id": 28,
         "nombre": "Impuestos I", 
         "horas": 2,
-        "id_carrera": 4
+        "id_carrera": 4,
+        "cuatrimestre": 1
     },
     {
         "id": 29,
         "nombre": "Sistema de costos",
         "horas": 3,
-        "id_carrera": 4
+        "id_carrera": 4,
+        "cuatrimestre": 2
     },
     {
         "id": 30,
         "nombre": "Teorías de la Comunicación",
         "horas": 4,
-        "id_carrera": 5
+        "id_carrera": 5,
+        "cuatrimestre": 1
     },
     {
         "id": 31,
         "nombre": "Taller de Tesis I",
         "horas": 6,
-        "id_carrera": 5
+        "id_carrera": 5,
+        "cuatrimestre": 1
     },
     {
         "id": 32,
         "nombre": "Taller de Tesis II",
         "horas": 6,
-        "id_carrera": 5
+        "id_carrera": 5,
+        "cuatrimestre": 2
     },
     {
         "id": 33,
         "nombre": "Metodologías de la Investigación en Comunicación",
         "horas": 4,
-        "id_carrera": 5
+        "id_carrera": 5,
+        "cuatrimestre": 1
     },
     {
         "id": 34,
         "nombre": "Taller de redaccion",
         "horas": 2,
-        "id_carrera": 6
+        "id_carrera": 6,
+        "cuatrimestre": 2
     },
     {
         "id": 35,
         "nombre": "Taller de grafica",
         "horas": 3,
-        "id_carrera": 6
+        "id_carrera": 6,
+        "cuatrimestre": 1
     },
     {
         "id": 36,
         "nombre": "Produccion de impresos",
         "horas": 2,
-        "id_carrera": 6
+        "id_carrera": 6,
+        "cuatrimestre": 2
     },
     {
         "id": 37,
         "nombre": "Historia de los medios",
         "horas": 3,
-        "id_carrera": 6
+        "id_carrera": 6,
+        "cuatrimestre": 1
     },
     {
         "id": 38,
         "nombre": "Comunicacion y cultura", 
         "horas": 4,
-        "id_carrera": 6
+        "id_carrera": 6,
+        "cuatrimestre": 2
     },
     {
         "id": 39,
         "nombre": "Derecho y edicion",
         "horas": 4,
-        "id_carrera": 6
+        "id_carrera": 6,
+        "cuatrimestre": 1
     },
     {
         "id": 40,
         "nombre": "Correccion de estilo",
         "horas": 2,
-        "id_carrera": 6
+        "id_carrera": 6,
+        "cuatrimestre": 2
     },
     {
         "id": 41,
         "nombre": "Microbiologia",
         "horas": 6,
-        "id_carrera": 7
+        "id_carrera": 7,
+        "cuatrimestre": 1
     },
     {
         "id": 42,
         "nombre": "Bioquimica",
         "horas": 6,
-        "id_carrera": 7
+        "id_carrera": 7,
+        "cuatrimestre": 2
     },
     {
         "id": 43,
         "nombre": "Fisiología",
         "horas": 6,
-        "id_carrera": 7
+        "id_carrera": 7,
+        "cuatrimestre": 1
     },
     {
         "id": 44,
         "nombre": "Salud pública y laboral", 
         "horas": 3,
-        "id_carrera": 7
+        "id_carrera": 7,
+        "cuatrimestre": 2
     },
     {
         "id": 45,
         "nombre": "Anatomia quirurgica", 
         "horas": 3,
-        "id_carrera": 7
+        "id_carrera": 7,
+        "cuatrimestre": 1
     },
     {
         "id": 46,
         "nombre": "Psicologia",
         "horas": 4,
-        "id_carrera": 7
+        "id_carrera": 7,
+        "cuatrimestre": 2
     }
 ]

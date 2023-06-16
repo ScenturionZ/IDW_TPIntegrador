@@ -8,7 +8,7 @@
 
     <title>Materias</title>
     <link rel="stylesheet" href="assets/boostrap/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style2.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
     <script src="assets/boostrap/js/bootstrap.bundle.js"></script>
     <script src="assets/js/utils.js" defer></script>
@@ -74,6 +74,7 @@
                     <th scope="col" class="filter">Nombre</th>
                     <th scope="col" class="filter">Horas</th>
                     <th scope="col" class="filter">Carrera Asociada</th>
+                    <th scope="col" class="filter">Cuatrimestre</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -170,6 +171,20 @@
                         <label for="validationCustom03" class="form-label">Pertenece a </label>
                         <select class="form-select form-control" id="validationCustom03" name="id_carrera" required>                        
                         </select>
+                        <div class="valid-feedback">
+                            Valido! :D
+                        </div>
+                        <div class="invalid-feedback">
+                        Invalido! :C
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <label for="validationCustom04" class="form-label">Cuatrimestre </label>
+                        <select class="form-select form-control" aria-label="Selector" id="validationCustom04" name="cuatrimestre" required>
+                            <option selected>Selecciona una para continuar</option>
+                            <option value="1">Primer cuatrimestre</option>
+                            <option value="2">Segundo Cuatrimestre</option>
+                          </select>
                         <div class="valid-feedback">
                             Valido! :D
                         </div>
