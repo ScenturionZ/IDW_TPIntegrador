@@ -18,8 +18,8 @@
 </head>
 <body>
     <!---->
-    <nav class="navbar navbar-expand-md bg-dark border-bottom border-bottom-dark justify-content-md-center" data-bs-theme="dark">
-        <a class="navbar-brand d-md-none d-inline" href="">
+    <nav class="navbar navbar-expand-md bg-dark border-bottom border-bottom-dark justify-content-md-center sticky-top" data-bs-theme="dark">
+        <a class="navbar-brand d-md-none d-inline" href="index.html">
             <img class="logo-uner" src="assets/img/unerLogo.png"/>
         </a>
         <button class="navbar-toggler ml-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar2">
@@ -68,7 +68,7 @@
             <div class="dropdown-menu p-4 dropdown-menu-end" id="dropdown-menu-filter">
             </div>
         </div>
-        <table class="table table-striped table-bordered" id="tablaCarreras">
+        <table class="table table-striped table-bordered table-responsive" id="tablaCarreras">
             <thead class="table-head">
                 <tr>
                     <th scope="col" class="checkbox-multiple"><input type="checkbox" id="checkMultiple"><label for="checkMultiple"></label></th>
@@ -76,7 +76,7 @@
                     <th scope="col" class="filter">Nombre</th>
                     <th scope="col" class="filter">Tipo</th>
                     <th scope="col" class="filter">Modalidad</th>
-                    <th scope="col" class="filter">Duracion (años)</th>
+                    <th scope="col" class="filter">Duracion(años)</th>
                     <th scope="col">Materias</th>
                     <th scope="col">Acciones</th>
                 </tr>
@@ -130,7 +130,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Desea eliminar a <span id="carreraName"></span>?
+                    Desea eliminar la carrera <span id="carreraName"></span>?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -141,40 +141,36 @@
         </div>
     </div>
     
-    <div class="modal fade" id="ElementModal" tabindex="-1" aria-labelledby="ElementModalLabel" aria-hidden="true">
+    <div class="modal fade" id="elementModal" tabindex="-1" aria-labelledby="elementModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ElementModalLabel">Nuevo</h1>
+                    <h1 class="modal-title fs-5" id="elementModalLabel">Nuevo</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form class="row g-3 needs-validation" novalidate id="elementForm" method="post">
                         <input type="hidden" class="form-control" name="id">
                         <div class="col-md-6">
-                          <label for="validationCustom01" class="form-label">Nombre</label>
-                          <input type="text" class="form-control" id="validationCustom01" name="nombre" required>
-                          <div class="valid-feedback">
-                            Valido! :D
-                          </div>
-                          <div class="invalid-feedback">
-                            Invalido! :C
-                          </div>
+                            <label for="validationCustom01" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="validationCustom01" name="nombre" required>
+                            <div class="valid-feedback">
+                                Valido! :D
+                            </div>
+                            <div class="invalid-feedback">
+                                Invalido! :C
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <label for="validationCustom02" class="form-label">Tipo</label>
                             <select class="form-select form-control" aria-label="Selector" id="validationCustom02" name="tipo" required>
-                                <option selected>Selecciona una para continuar</option>
-                                <option value="GRADO">GRADO</option>
-                                <option value="PREGRADO">PREGRADO</option>
-                                <option value="POSTGRADO">POSTGRADO</option>
-                              </select>
-                          <div class="valid-feedback">
-                            Valido! :D
-                          </div>
-                          <div class="invalid-feedback">
-                            Invalido! :C
-                          </div>
+                            </select>
+                            <div class="valid-feedback">
+                                Valido! :D
+                            </div>
+                            <div class="invalid-feedback">
+                                Invalido! :C
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <label for="validationCustom00" class="form-label">Duracion</label>
@@ -187,29 +183,26 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                          <label for="validationCustom03" class="form-label">Modalidad</label>
-                          <select class="form-select form-control" aria-label="Selector" id="validationCustom03" name="modalidad" required>
-                            <option selected>Selecciona una para continuar</option>
-                            <option value="presencial">PRESENCIAL</option>
-                            <option value="virtual">VIRTUAL</option>
-                          </select>
-                          <div class="valid-feedback">
-                            Valido! :D
-                          </div>
-                          <div class="invalid-feedback">
-                            Invalido! :C
-                          </div>
+                            <label for="validationCustom03" class="form-label">Modalidad</label>
+                            <select class="form-select form-control" aria-label="Selector" id="validationCustom03" name="modalidad" required>
+                            </select>
+                            <div class="valid-feedback">
+                                Valido! :D
+                            </div>
+                            <div class="invalid-feedback">
+                                Invalido! :C
+                            </div>
                         </div>
                         <div class="col-12">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                              Acepto los terminos y condiciones.
-                            </label>
-                            <div class="invalid-feedback">
-                              Debe aceptar los terminos y condiciones antes de continuar.
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <label class="form-check-label" for="invalidCheck">
+                                Acepto los terminos y condiciones.
+                                </label>
+                                <div class="invalid-feedback">
+                                Debe aceptar los terminos y condiciones antes de continuar.
+                                </div>
                             </div>
-                          </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -225,7 +218,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="">Listado de materias</h1>
+                    <h1 class="modal-title fs-5" id="verListaModalLabel">Listado de materias</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -233,11 +226,25 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <input type="hidden" id="listId">
                 </div>
             </div>
         </div>
     </div>
-
+    <div class="modal fade" id="verInscriptosModal" tabindex="-1" aria-labelledby="verInscriptosModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="verInscriptosModalLabel">Listado de inscriptos</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush" id="inscriptosList"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

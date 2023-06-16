@@ -219,7 +219,6 @@ font-size: 1.5rem;
 }
 
 .novedades:first-child{
-    /* color: #ffffff;  */
     padding: 1rem;
 }
 
@@ -245,4 +244,8 @@ font-size: 1.5rem;
         height: 13rem;
     }
 
+}
+
+.card{
+    height: 12rem !important;
 }

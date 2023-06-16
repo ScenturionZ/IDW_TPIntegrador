@@ -94,7 +94,8 @@
         "id": 14,
         "nombre": "Programacion I",
         "horas": 4,
-        "id_carrera": 3
+        "id_carrera": 3,
+        "cuatrimestre": 2
     },
     {
         "id": 15,

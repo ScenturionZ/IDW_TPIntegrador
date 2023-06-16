@@ -2,7 +2,9 @@
 const GLOBAL_KEYS = {
                         ESTUDIANTES : "estudiantes",
                         CARRERAS : "carreras",
-                        MATERIAS : "materias"
+                        MATERIAS : "materias",
+                        INSCRIPCIONES_MATERIAS: "inscripcionMaterias",
+                        INSCRIPCIONES_CARRERAS: "inscripcionCarreras"
                     }
 
 const GLOBAL_VALUES = {
@@ -11,45 +13,92 @@ const GLOBAL_VALUES = {
                         MATERIAS_JSON: "./assets/json/materias.json"
                     }
 
+const TIPO_CARRERA = {
+                        1: "PREGRADO",
+                        2: "GRADO",
+                        3: "POSTGRADO"
+                    }
+
+const MODALIDAD_CARRERA = {
+                            1: "PRESENCIAL",
+                            2: "VIRTUAL",
+                            3: "HIBRIDO"
+                        }
+
+const PERIODO_MATERIA = {
+                            1: "PRIMER TRIMESTRE",
+                            2: "SEGUNDO TRIMESTRE"
+                        }
 var globalKey = '';
 
 //MODALS
 if(document.getElementById("noChecksModal")){
-    var noChecksModal = new bootstrap.Modal(document.getElementById("noChecksModal"), {});
+    var noChecksModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("noChecksModal"));
 }
 
 if(document.getElementById("deleteMultipleModal")){
-    var deleteMultipleModal = new bootstrap.Modal(document.getElementById("deleteMultipleModal"), {});
+    var deleteMultipleModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("deleteMultipleModal"));
 }
 
 if(document.getElementById("deleteModal")){
-    var deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"), {});
+    var deleteModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("deleteModal"));
 }
 
-if(document.getElementById("ElementModal")){
-    var elementModal = new bootstrap.Modal(document.getElementById("ElementModal"), {});
+if(document.getElementById("elementModal")){
+    var elementModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("elementModal"));
 }
 
 //BOOSTRAP VALIDATE
 (() => {
     'use strict'
-  
+    
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     const forms = document.querySelectorAll('.needs-validation')
-  
+    
     // Loop over them and prevent submission
     Array.from(forms).forEach(form => {
       form.addEventListener('submit', event => {
         if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
+            event.preventDefault()
+            event.stopPropagation()
         }
         form.classList.add('was-validated')
-      }, false)
-    })
+    }, false)
+})
 })()
 
 //FUNCTIONS
+function getEstudiantes(){
+    return JSON.parse(localStorage.getItem(GLOBAL_KEYS.ESTUDIANTES));
+}
+
+function getCarreras(){
+    return JSON.parse(localStorage.getItem(GLOBAL_KEYS.CARRERAS));
+}
+
+function getMaterias(){
+    return JSON.parse(localStorage.getItem(GLOBAL_KEYS.MATERIAS));
+}
+
+function getInscripcionesCarreras(){
+    return JSON.parse(localStorage.getItem(GLOBAL_KEYS.INSCRIPCIONES_CARRERAS));
+}
+
+function getInscripcionesMaterias(){
+    return JSON.parse(localStorage.getItem(GLOBAL_KEYS.INSCRIPCIONES_MATERIAS));
+}
+function getEstudianteById(id){
+    return getEstudiantes().find(e => e.id == id);
+}
+
+function getCarreraById(id){
+    return getCarreras().find(c => c.id == id);
+}
+
+function getMateriaById(id){
+    return getMaterias().find(m => m.id == id);
+}
+
 function readJSON(file, callback){
     let rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
@@ -103,7 +152,7 @@ function generateId(){
     array.sort(function(a, b) { 
         return a.id - b.id;
     });
-    return String(Number(array[array.length - 1].id) + 1);
+    return Number(array[array.length - 1].id) + 1;
 }
 
 function toCapitalize(str){
@@ -145,18 +194,34 @@ function appendElementTable(element){
         if(k == "id" && element[k] < 10)
             cell.innerHTML = "0" + element[k];
         else{
-            cell.innerHTML = element[k];
             if(globalKey == GLOBAL_KEYS.MATERIAS && k == "id_carrera"){
-                cell.classList.add('materia-carrera');
+                cell.innerHTML = getCarreraById(element[k]).nombre;
+            }else if(globalKey == GLOBAL_KEYS.CARRERAS && k == "tipo"){
+                cell.innerHTML = TIPO_CARRERA[element[k]];
+            }else if(globalKey == GLOBAL_KEYS.CARRERAS && k == "modalidad"){
+                cell.innerHTML = MODALIDAD_CARRERA[element[k]];
+            }else if(globalKey == GLOBAL_KEYS.ESTUDIANTES && k == "nacimiento"){
+                let date = element[k].split("-");
+                cell.innerHTML = date[2] + "/" + date[1] + "/" + date[0];
+            }else{
+                cell.innerHTML = element[k];
             }
         }
     }
+
     if(globalKey == GLOBAL_KEYS.CARRERAS){
         let materiasButton = '<a class="btn materias-btn" type="button" id="materias-' + element.id + '">Ver listado</a>'
         cell = row.insertCell(-1);
         cell.classList.add('td-btn');
         cell.innerHTML = materiasButton;
     }
+    
+    if(globalKey == GLOBAL_KEYS.ESTUDIANTES){
+        actionsButton += '<button type="button" class="btn inscripcion btn-outline-info rounded-pill ms-2" type="button" id="inscripcion-' + element.id + '">Inscipcion</btn>'
+    }else{
+        actionsButton += '<button type="button" class="btn inscripcion btn-outline-info rounded-pill ms-2" type="button" id="'+ globalKey + '-' + element.id + '">Inscriptos</btn>'
+    }
+
     cell = row.insertCell(-1);
     cell.classList.add('td-btn');
     cell.innerHTML = actionsButton;
@@ -202,7 +267,7 @@ function deleteRowElement(btnDelete){
     let table = tbody.parentElement;
     let id = btnDelete.id.replace("delete-", "");
     table.deleteRow(row.rowIndex);
-    removeItem(id);
+    removeElementById(id);
 }
 
 function getChecksIds(){
@@ -218,6 +283,7 @@ function getChecksIds(){
 
 function checkDeleteMultiple(){
     if(getChecksIds().length == 0){
+        let noChecksModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("noChecksModal"));
         noChecksModal.show();
     }else{
         deleteMultipleModal.show();
@@ -233,11 +299,16 @@ function clearElementModal(){
     for (let i of getElementInputs()) {
         i.value = '';
     }
+    let form = document.getElementById("elementForm");
+    form.classList.remove("was-validated");
+    let checkDiv = form.getElementsByClassName("form-check")[0];
+    let check = checkDiv.getElementsByTagName('input')[0];
+    check.checked = false;
 }
 
 function showSaveOrUpdateModal(id){
     clearElementModal();
-    document.getElementById("ElementModalLabel").innerHTML = getTitleElementModal(id);
+    document.getElementById("elementModalLabel").innerHTML = getTitleElementModal(id);
     if(id !== 0){
         let element = getElementById(id);
         for (let i of getElementInputs()) {
@@ -250,7 +321,11 @@ function showSaveOrUpdateModal(id){
 function saveOrUpdateElement(){
     let element = getVoidElement();
     for (let i of getElementInputs()) {
-        element[i.name] = i.value;
+        if(i.name == "id"){
+            element[i.name] = Number(i.value);
+        }else{
+            element[i.name] = i.value;
+        }
     }
 
     if(element.id == 0){
@@ -261,25 +336,12 @@ function saveOrUpdateElement(){
     }
 
     loadElementTable();
+    clearElementModal();
     elementModal.hide();
 }
 
 //EVENTS
 window.addEventListener("load", function(){
-    let deleteButtons = document.getElementsByClassName("delete");
-    for (let btnDelete of deleteButtons) {
-        btnDelete.addEventListener("click", function() {
-            deleteModal.show();
-        });
-    }
-
-    let editButtons = document.getElementsByClassName("edit");
-    for (let btnEdit of editButtons) {
-        btnEdit.addEventListener("click", function() {
-            showSaveOrUpdateModal(btnEdit.id.replace("edit-", ""));
-        });
-    }
-
     let checks = document.getElementsByClassName("check-filter");
     for (let check of checks) {
         check.addEventListener("click", function() {
@@ -292,6 +354,21 @@ window.addEventListener("load", function(){
     for (let input of inputs) {
         input.addEventListener("input", function() {
             this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');
+        });
+    }
+
+    if(document.getElementById("tabla" + toCapitalize(globalKey))){
+        document.getElementById("tabla" + toCapitalize(globalKey)).addEventListener('click', (e) => {
+            if(e.target && e.target.tagName == 'BUTTON'){
+                if(e.target.classList.contains("edit")){
+                    showSaveOrUpdateModal(e.target.id.replace("edit-", ""));
+                }else if(e.target.classList.contains("delete")){
+                    let id = e.target.id.replace("delete-", "");
+                    document.getElementById("elementId").value = id;
+                    setElementNameDelete(id);
+                    deleteModal.show();
+                }
+            }
         });
     }
 });
@@ -353,12 +430,16 @@ if(document.getElementById("elementForm")){
 }
 
 //PROTOTYPES
-function getElementById(id){}
+function getElementById(id){};
 
-function getVoidElement(){}
+function removeElementById(id){};
 
-function createElement(){}
+function getVoidElement(){};
 
-function loadElementTable(){}
+function createElement(){};
 
-function getTitleElementModal(id){}
+function loadElementTable(){};
+
+function getTitleElementModal(id){};
+
+function setElementName(id){};

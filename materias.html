@@ -16,8 +16,8 @@
     <script src="assets/js/materias.js" defer></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md bg-dark border-bottom border-bottom-dark justify-content-md-center" data-bs-theme="dark">
-        <a class="navbar-brand d-md-none d-inline" href="">
+    <nav class="navbar navbar-expand-md bg-dark border-bottom border-bottom-dark justify-content-md-center sticky-top" data-bs-theme="dark">
+        <a class="navbar-brand d-md-none d-inline" href="index.html">
             <img class="logo-uner" src="assets/img/unerLogo.png"/>
         </a>
         <button class="navbar-toggler ml-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar2">
@@ -72,9 +72,9 @@
                     <th scope="col" class="checkbox-multiple"><input type="checkbox" id="checkMultiple"><label for="checkMultiple"></label></th>
                     <th scope="col" class="filter">ID</th>
                     <th scope="col" class="filter">Nombre</th>
-                    <th scope="col" class="filter">Horas</th>
+                    <th scope="col" class="filter">Hrs</th>
                     <th scope="col" class="filter">Carrera Asociada</th>
-                    <th scope="col" class="filter">Cuatrimestre</th>
+                    <th scope="col" class="filter">Periodo</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -82,124 +82,148 @@
         </table>
     </section>
 
-<!-- Modals -->
-<div class="modal fade" id="deleteMultipleModal" tabindex="-1" aria-labelledby="deleteMultipleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="deleteMultipleModalLabel">Eliminar multiple</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Desea eliminar los elementos seleccionados?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="deleteMultipleElements">Eliminar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="noChecksModal" tabindex="-1" aria-labelledby="noChecksModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="noChecksModalLabel">Error</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                No se selecciono un elemento a eliminar
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-info" data-bs-dismiss="modal">OK</button>
+    <!-- Modals -->
+    <div class="modal fade" id="deleteMultipleModal" tabindex="-1" aria-labelledby="deleteMultipleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteMultipleModalLabel">Eliminar multiple</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Desea eliminar los elementos seleccionados?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="deleteMultipleElements">Eliminar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="deleteModalLabel">Eliminar materia</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Desea eliminar la materia <span id="materiaName"></span>?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="deleteElement">Eliminar</button>
-                <input type="hidden" id="elementId">
+    <div class="modal fade" id="noChecksModal" tabindex="-1" aria-labelledby="noChecksModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="noChecksModalLabel">Error</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    No se selecciono un elemento a eliminar
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">OK</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="ElementModal" tabindex="-1" aria-labelledby="ElementModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="ElementModalLabel">Nuevo</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteModalLabel">Eliminar materia</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Desea eliminar la materia <span id="materiaName"></span>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="deleteElement">Eliminar</button>
+                    <input type="hidden" id="elementId">
+                </div>
             </div>
-            <div class="modal-body">
-                <form class="row g-3 needs-validation" novalidate id="elementForm" method="post">
-                    <input type="hidden" class="form-control" name="id">
-                    <div class="col-md-12">
-                      <label for="validationCustom01" class="form-label">Nombre</label>
-                      <input type="text" class="form-control" id="validationCustom01" name="nombre" required>
-                      <div class="valid-feedback">
-                        Valido! :D
-                      </div>
-                      <div class="invalid-feedback">
-                        Invalido! :C
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="validationCustom02" class="form-label">Horas</label>
-                        <input type="text" id="validationCustom02" class="form-control onlyNumbers" pattern=".{0}|.{1,}" maxlength="2" required name="horas"/>
-                        <div class="valid-feedback">
-                          Valido! :D
-                        </div>
-                        <div class="invalid-feedback">
-                          Invalido! :C
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <label for="validationCustom03" class="form-label">Pertenece a </label>
-                        <select class="form-select form-control" id="validationCustom03" name="id_carrera" required>                        
-                        </select>
+        </div>
+    </div>
+
+    <div class="modal fade" id="elementModal" tabindex="-1" aria-labelledby="elementModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="elementModalLabel">Nuevo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3 needs-validation" novalidate id="elementForm" method="post">
+                        <input type="hidden" class="form-control" name="id">
+                        <div class="col-md-12">
+                        <label for="validationCustom01" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="validationCustom01" name="nombre" required>
                         <div class="valid-feedback">
                             Valido! :D
                         </div>
                         <div class="invalid-feedback">
-                        Invalido! :C
+                            Invalido! :C
                         </div>
-                    </div>
-                    <div class="col-md-9">
-                        <label for="validationCustom04" class="form-label">Cuatrimestre </label>
-                        <select class="form-select form-control" aria-label="Selector" id="validationCustom04" name="cuatrimestre" required>
-                            <option selected>Selecciona una para continuar</option>
-                            <option value="1">Primer cuatrimestre</option>
-                            <option value="2">Segundo Cuatrimestre</option>
-                          </select>
-                        <div class="valid-feedback">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="validationCustom02" class="form-label">Horas</label>
+                            <input type="text" id="validationCustom02" class="form-control onlyNumbers" pattern=".{0}|.{1,}" maxlength="2" required name="horas"/>
+                            <div class="valid-feedback">
                             Valido! :D
+                            </div>
+                            <div class="invalid-feedback">
+                            Invalido! :C
+                            </div>
                         </div>
-                        <div class="invalid-feedback">
-                        Invalido! :C
+                        <div class="col-md-9">
+                            <label for="validationCustom03" class="form-label">Pertenece a </label>
+                            <select class="form-select form-control" id="validationCustom03" name="id_carrera" required>                        
+                            </select>
+                            <div class="valid-feedback">
+                                Valido! :D
+                            </div>
+                            <div class="invalid-feedback">
+                            Invalido! :C
+                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-success" id="saveOrUpdateElement">Confirmar</button>
-                    </div>
-                </form>
+                        <div class="col-md-12">
+                            <label for="validationCustom04" class="form-label">Periodo</label>
+                            <select class="form-select form-control" id="validationCustom04" name="cuatrimestre" required>
+                            </select>
+                            <div class="valid-feedback">
+                                Valido! :D
+                            </div>
+                            <div class="invalid-feedback">
+                            Invalido! :C
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <label class="form-check-label" for="invalidCheck">
+                                    Acepto los terminos y condiciones.
+                                </label>
+                                <div class="invalid-feedback">
+                                    Debe aceptar los terminos y condiciones antes de continuar.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-success" id="saveOrUpdateElement">Confirmar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="modal fade" id="verInscriptosModal" tabindex="-1" aria-labelledby="verInscriptosModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="verInscriptosModalLabel">Listado de inscriptos</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush" id="inscriptosList"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

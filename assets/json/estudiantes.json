@@ -1,6 +1,6 @@
 [
     {
-      "id": "1",
+      "id": 1,
       "nombre": "Thomas",
       "apellido": "Edison",
       "dni": "12345678",
@@ -10,7 +10,7 @@
       "nacimiento": "2003-12-03"
     },
     {
-      "id": "2",
+      "id": 2,
       "nombre": "Emilia",
       "apellido": "Edison",
       "dni": "12764257",
@@ -20,7 +20,7 @@
       "nacimiento": "1990-01-15"
     },
     {
-      "id": "3",
+      "id": 3,
       "nombre": "Mollie",
       "apellido": "Bradley",
       "dni": "54838485",
@@ -30,7 +30,7 @@
       "nacimiento": "2000-09-12"
     },
     {
-      "id": "4",
+      "id": 4,
       "nombre": "Declan",
       "apellido": "Whitley",
       "dni": "62208582",
@@ -40,7 +40,7 @@
       "nacimiento": "1998-10-23"
     },
     {
-      "id": "5",
+      "id": 5,
       "nombre": "Charlotte",
       "apellido": "Walls",
       "dni": "29883654",
@@ -50,7 +50,7 @@
       "nacimiento": "1995-08-05"
     },
     {
-      "id": "6",
+      "id": 6,
       "nombre": "Buffy",
       "apellido": "Workman",
       "dni": "84840037",
@@ -60,7 +60,7 @@
       "nacimiento": "2001-11-30"
     },
     {
-      "id": "7",
+      "id": 7,
       "nombre": "Rahim",
       "apellido": "Hensley",
       "dni": "93558874",

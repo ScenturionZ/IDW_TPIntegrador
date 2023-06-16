@@ -1,20 +1,9 @@
+//MODAL
+if(document.getElementById("verInscriptosModal")){
+    var inscriptosModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("verInscriptosModal"));
+}
+
 //FUNCTIONS
-function getMaterias(){
-    return getJSON();
-}
-
-function getCarreras(){
-    return JSON.parse(localStorage.getItem(GLOBAL_KEYS.CARRERAS));
-}
-
-function getCarreraById(id){
-    return getCarreras().find(c => c.id == id);
-}
-
-function removeMateria(id){
-    removeItem(id)
-}
-
 function addMateria(element){
     addItem(element);
 }
@@ -50,15 +39,28 @@ loadElementTable = function (){
             appendElementTable(e);
         }
     }
-    let carreraCells = document.getElementsByClassName("materia-carrera");
-    for (let cell of carreraCells) {
-        cell.innerHTML = getCarreraById(cell.innerHTML).nombre;
-    }
 }
 
 getElementById = function (id){
-    return getMaterias().find(e => e.id == id);
+    return getMateriaById(id);
 }
+
+removeElementById = function(id){
+    let inscripciones = getInscripcionesMaterias();
+    let removeList = [];
+
+    for (let i of inscripciones) {
+        if(i.materia_id == id){
+            removeList.push(i);
+        }
+    }
+    for (let r of removeList) {
+        inscripciones.splice(inscripciones.indexOf(r), 1);
+    }
+    localStorage.setItem(GLOBAL_KEYS.INSCRIPCIONES_MATERIAS, JSON.stringify(inscripciones));
+    removeItem(id);
+}
+    
 
 getTitleElementModal = function(id){
     let value = 'Nueva Materia'
@@ -66,6 +68,10 @@ getTitleElementModal = function(id){
         value = 'Editar ' + getNameMateriaById(id);
     }
     return value;
+}
+
+setElementNameDelete = function(id){
+    document.getElementById("materiaName").innerHTML = getNameMateriaById(id);
 }
 
 //EVENTS
@@ -79,15 +85,33 @@ document.addEventListener("DOMContentLoaded", function(){
         html += '<option value="' + c.id + '">' + c.nombre + '</option>';
     }
     selectCarrera.innerHTML = voidOption + html;
+
+    voidOption = '<option selected disabled value="">Seleccione una carrera</option>';
+    let selectCuatrimestre = document.getElementsByName("cuatrimestre")[0];
+    html = '';
+    for(k of Object.keys(PERIODO_MATERIA)){
+        html += '<option value="' + k + '">' + PERIODO_MATERIA[k] + '</option>';
+    }
+    selectCuatrimestre.innerHTML = voidOption + html;
 });
 
-window.addEventListener("load", function(){
-    let deleteButtons = document.getElementsByClassName("delete");
-    for (let btnDelete of deleteButtons) {
-        btnDelete.addEventListener("click", function() {
-            let id = this.id.replace("delete-", "");
-            document.getElementById("elementId").value = id;
-            document.getElementById("materiaName").innerHTML = getNameMateriaById(id);
-        });
+document.getElementById("tablaMaterias").addEventListener('click', (e) => {
+    if(e.target && e.target.tagName == 'BUTTON'){
+        if(e.target.classList.contains("inscripcion")){
+            let id = e.target.id.replace("materias-", "");
+            let ul = document.getElementById("inscriptosList");
+            let list = getInscripcionesMaterias();
+            ul.innerHTML = "";
+            for (let e of list){
+                if(e.materia_id == id){
+                    const li = document.createElement("li");
+                    const estudiante = getEstudianteById(e.estudiante_id);
+                    li.classList.add('list-group-item');
+                    li.innerHTML = estudiante.nombre + ' ' + estudiante.apellido;
+                    ul.appendChild(li);
+                }
+            }
+            inscriptosModal.show();
+        }
     }
 });

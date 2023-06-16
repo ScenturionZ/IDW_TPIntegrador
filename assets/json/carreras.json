@@ -1,51 +1,51 @@
 [
     {
-      "id": 1,
-      "nombre": "Tecnicatura Universitaria en Jardinería",
-      "tipo": "PREGRADO",
-      "modalidad": "presencial",
-      "duracion": 2.5
+		"id": 1,
+		"nombre": "Tecnicatura Universitaria en Jardinería",
+		"tipo": 1,
+		"modalidad": 1,
+		"duracion": 2.5
     },
     {
-      "id": 2,
-      "nombre": "Licenciatura en Ciencias de la Administración",
-      "tipo": "GRADO",
-      "modalidad": "virtual",
-      "duracion": 5
+		"id": 2,
+		"nombre": "Licenciatura en Ciencias de la Administración",
+		"tipo": 2,
+		"modalidad": 2,
+		"duracion": 5
     },
     {
-      "id": 3,
-      "nombre": "Tecnicatura Universitaria en Desarrollo Web",
-      "tipo": "PREGRADO",
-      "modalidad": "virtual",
-      "duracion": 3
+		"id": 3,
+		"nombre": "Tecnicatura Universitaria en Desarrollo Web",
+		"tipo": 1,
+		"modalidad": 2,
+		"duracion": 3
     },
     {
-      "id": 4,
-      "nombre": "Contador Público",
-      "tipo": "GRADO",
-      "modalidad": "virtual",
-      "duracion": 5
+		"id": 4,
+		"nombre": "Contador Público",
+		"tipo": 2,
+		"modalidad": 2,
+		"duracion": 5
     },
     {
-      "id": 5,
-      "nombre": "Maestría en Comunicación",
-      "tipo": "POSTGRADO",
-      "modalidad": "presencial",
-      "duracion": 2
+		"id": 5,
+		"nombre": "Maestría en Comunicación",
+		"tipo": 3,
+		"modalidad": 1,
+		"duracion": 2
     },
     {
-      "id": 6,
-      "nombre": "Tecnicatura en Producción Editorial",
-      "tipo": "PREGRADO",
-      "modalidad": "presencial",
-      "duracion": 3
+		"id": 6,
+		"nombre": "Tecnicatura en Producción Editorial",
+		"tipo": 1,
+		"modalidad": 1,
+		"duracion": 3
     },
     {
-      "id": 7,
-      "nombre": "Licenciatura en Instrumentación Quirúrgica",
-      "tipo": "GRADO",
-      "modalidad": "presencial",
-      "duracion": 5
+		"id": 7,
+		"nombre": "Licenciatura en Instrumentación Quirúrgica",
+		"tipo": 2,
+		"modalidad": 1,
+		"duracion": 5
     }
 ]
