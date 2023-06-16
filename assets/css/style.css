@@ -172,6 +172,11 @@ hr.vertical {
     font-weight: 300;
 }
 
+.text-map {
+    color: var(--color-lessDarkBlue);
+    font-weight: 400;
+}
+
 .img-item-carousel{
     height: 22rem;
 }
@@ -189,4 +194,55 @@ hr.vertical {
 .item-img3{
     position: absolute;
     top: -19rem;
+}
+
+.ubi-uner{
+margin-top: 15rem !important;
+}
+
+.map-contacto{
+    width: 100%;
+    height: 15rem;
+}
+
+.novedades{
+    background-color: var(--color-lessDarkBlue);
+    text-align: left;
+    color: white;
+    vertical-align: middle;
+}
+.novedades p{
+text-align: left;
+font-size: 1.5rem;
+ color: #ffffff; 
+ vertical-align: middle; 
+}
+
+.novedades:first-child{
+    /* color: #ffffff;  */
+    padding: 1rem;
+}
+
+.img-novedades{
+    float: left;
+}
+
+@media (max-width: 800px) {
+    .ubi-uner{
+        margin-top: 2rem !important;
+    }
+    .margin{
+        margin-top:2rem !important
+    }
+    .marginTotal{
+        margin-top: 2rem !important; 
+        margin-bottom: 1rem !important;
+    }
+    .item-img3{
+        top: -7rem;
+    }
+    .img-item-carousel{
+        height: 13rem;
+    }
+
 }
