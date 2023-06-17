@@ -76,6 +76,7 @@ getElementById = function (id){
 removeElementById = function(id){
     let inscripciones = getInscripcionesCarreras();
     let removeList = [];
+    let materias = getMaterias();
 
     for (let i of inscripciones) {
         if(i.carrera_id == id){
@@ -85,6 +86,12 @@ removeElementById = function(id){
     for (let r of removeList) {
         inscripciones.splice(inscripciones.indexOf(r), 1);
     }
+    for(let m of materias){
+        if (m.id_carrera == id){
+            m.id_carrera=0;
+        }
+    }
+    localStorage.setItem(GLOBAL_KEYS.MATERIAS, JSON.stringify(materias));
     localStorage.setItem(GLOBAL_KEYS.INSCRIPCIONES_CARRERAS, JSON.stringify(inscripciones));
     removeItem(id);
 }
